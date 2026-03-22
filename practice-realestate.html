@@ -876,47 +876,33 @@ p {
 
 .fade-up { opacity: 1 !important; transform: none !important; }
   
-    /* ── Dropdown (CSS only) ── */
-    .nav-dropdown {
-      position: relative;
-      display: inline-block;
-    }
+    
+    
+        /* ── Dropdown ── */
+    .nav-dropdown { position: relative; display: inline-block; }
     .nav-dropdown__menu {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 210px;
-      z-index: 9999;
-      transition: opacity 0.15s ease, visibility 0.15s ease;
+      visibility: hidden; opacity: 0;
+      position: absolute; top: 100%; left: 0;
+      min-width: 210px; z-index: 9999;
       padding-top: 8px;
+      transition: opacity 0.15s, visibility 0.15s;
     }
-    .nav-dropdown:hover .nav-dropdown__menu {
-      visibility: visible;
-      opacity: 1;
-    }
+    .nav-dropdown:hover .nav-dropdown__menu { visibility: visible; opacity: 1; }
     .nav-dropdown__menu-inner {
       background: #122848;
       border: 1px solid rgba(201,168,76,0.3);
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
     .nav-dropdown__menu a {
-      display: block !important;
-      padding: 0.8rem 1.2rem !important;
-      font-size: 0.88rem !important;
-      font-weight: 500 !important;
+      display: block !important; padding: 0.8rem 1.2rem !important;
+      font-size: 0.88rem !important; font-weight: 500 !important;
       color: rgba(250,248,242,0.85) !important;
       border-bottom: 1px solid rgba(201,168,76,0.1) !important;
-      letter-spacing: 0 !important;
-      text-transform: none !important;
+      letter-spacing: 0 !important; text-transform: none !important;
       white-space: nowrap;
     }
     .nav-dropdown__menu a:last-child { border-bottom: none !important; }
-    .nav-dropdown__menu a:hover {
-      background: rgba(201,168,76,0.12) !important;
-      color: #E0CC96 !important;
-    }
+    .nav-dropdown__menu a:hover { background: rgba(201,168,76,0.12) !important; color: #E0CC96 !important; }
     .nav-dropdown__menu a::after { display: none !important; }
     </style>
 <style>
@@ -1431,33 +1417,7 @@ p {
   
 <style>
   html { scroll-behavior: smooth; }
-  .nav-dropdown { position: relative; }
-  .nav-dropdown__trigger { cursor: pointer; }
-  .nav-dropdown__menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1rem);
-    left: 0;
-    background: var(--navy-800, #122848);
-    border: 1px solid rgba(201,168,76,0.2);
-    min-width: 200px;
-    z-index: 100;
-    flex-direction: column;
-  }
-  .nav-dropdown:hover .nav-dropdown__menu { display: flex; }
-  .nav-dropdown__menu a {
-    padding: 0.8rem 1.2rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: rgba(250,248,242,0.8);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-    transition: background 0.2s, color 0.2s;
-  }
-  .nav-dropdown__menu a:last-child { border-bottom: none; }
-  .nav-dropdown__menu a:hover {
-    background: rgba(201,168,76,0.08);
-    color: var(--gold-400, #E0CC96);
-  }
+  
 
   /* Practice 내부 고정 사이드 메뉴 */
   .practice-layout {
@@ -1599,9 +1559,14 @@ p {
       <a href="sean-jang-estate-planning.html#about">변호사 소개</a>
       <div class="nav-dropdown">
         <a href="sean-jang-estate-planning.html#practice" class="nav-dropdown__trigger">Practice Areas ▾</a>
-        <div class="nav-dropdown__menu"><div class="nav-dropdown__menu-inner"><a href="practice-estate.html">Estate Planning</a>
-          <a href="practice-inheritance.html">Korean Inheritance</a>
-          <a href="practice-realestate.html">Real Estate</a></div></div></div>
+        <div class="nav-dropdown__menu">
+          <div class="nav-dropdown__menu-inner">
+            <a href="practice-estate.html">Estate Planning</a>
+            <a href="practice-inheritance.html">Korean Inheritance</a>
+            <a href="practice-realestate.html">Real Estate</a>
+          </div>
+        </div>
+      </div>
       <a href="sean-jang-estate-planning.html#why">Why Estate Planning</a>
       <a href="faq.html">FAQ</a>
     </div>
