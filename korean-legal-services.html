@@ -1565,6 +1565,66 @@ p {
     .practice-content { padding: 2rem 1rem; }
   }
 </style>
+
+  <style>
+  /* ════════════════════════════
+     MOBILE OPTIMIZATION (≤768px)
+  ════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* ── 네비 ── */
+    .site-nav__inner { padding: 0 1.2rem; }
+    .site-nav__logo { font-size: 1rem; }
+    .site-nav__logo span { display: none; }
+    .site-nav__cta .btn-primary { display: none; }
+    .site-nav.mobile-open .btn-primary {
+      display: inline-flex !important;
+      margin-top: 2rem;
+    }
+
+    /* ── 섹션 패딩 ── */
+    .section { padding: 3rem 0; }
+    .container { padding: 0 1.2rem; }
+    .section-header h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+    /* ── 푸터 ── */
+    .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .site-footer__legal-disclaimer { font-size: 0.75rem; }
+    .site-footer { padding: 3rem 0 2rem; }
+  }
+
+  @media (max-width: 390px) {
+    .container { padding: 0 1rem; }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    /* ── KLS 사이드바 레이아웃 ── */
+    .practice-layout { grid-template-columns: 1fr !important; }
+    .practice-sidebar {
+      position: static !important;
+      border-right: none !important;
+      border-bottom: 1px solid rgba(11,31,58,0.1);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .practice-sidebar a { padding: 0.5rem 1rem; font-size: 0.85rem; display: inline-block; }
+    .practice-content { padding: 0 !important; }
+    .practice-hero { padding: 5rem 0 3rem; }
+    .practice-hero h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+    .practice-cta {
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+    .practice-cta .btn { width: 100%; text-align: center; }
+
+    /* ── highlight 박스 ── */
+    div[style*="border-left:3px solid #C9A84C"] {
+      padding: 0.75rem 1rem !important;
+    }
+  }
+  </style>
 </head>
 <body>
 <nav class="site-nav">

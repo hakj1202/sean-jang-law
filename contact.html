@@ -1646,6 +1646,48 @@ p {
   </style>
   <style>
   </style>
+
+  <style>
+  /* ════════════════════════════
+     MOBILE OPTIMIZATION (≤768px)
+  ════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* ── 네비 ── */
+    .site-nav__inner { padding: 0 1.2rem; }
+    .site-nav__logo { font-size: 1rem; }
+    .site-nav__logo span { display: none; }
+    .site-nav__cta .btn-primary { display: none; }
+    .site-nav.mobile-open .btn-primary {
+      display: inline-flex !important;
+      margin-top: 2rem;
+    }
+
+    /* ── 섹션 패딩 ── */
+    .section { padding: 3rem 0; }
+    .container { padding: 0 1.2rem; }
+    .section-header h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+    /* ── 푸터 ── */
+    .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .site-footer__legal-disclaimer { font-size: 0.75rem; }
+    .site-footer { padding: 3rem 0 2rem; }
+  }
+
+  @media (max-width: 390px) {
+    .container { padding: 0 1rem; }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    .contact-body { padding: 2.5rem 0; }
+    .contact-form { padding: 1.5rem !important; }
+    .form-row { grid-template-columns: 1fr !important; gap: 1rem; }
+    .contact-hero { padding: 5rem 0 3rem; }
+    .contact-hero h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+    .btn[type="submit"], button[type="submit"] { width: 100%; }
+  }
+  </style>
 </head>
 <body>
 

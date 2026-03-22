@@ -1459,6 +1459,115 @@ p {
     scroll-margin-top: 140px;
   }
 </style>
+
+  <style>
+  /* ════════════════════════════
+     MOBILE OPTIMIZATION (≤768px)
+  ════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* ── 네비 ── */
+    .site-nav__inner { padding: 0 1.2rem; }
+    .site-nav__logo { font-size: 1rem; }
+    .site-nav__logo span { display: none; }
+    .lang-toggle { display: flex; }
+    .site-nav__cta .btn-primary { display: none; }
+
+    /* 모바일 메뉴 열렸을 때 상담 예약 버튼 표시 */
+    .site-nav.mobile-open .btn-primary {
+      display: inline-flex !important;
+      margin-top: 2rem;
+    }
+
+    /* ── 히어로 ── */
+    .hero { min-height: 100svh; }
+    .hero__content {
+      width: 100%;
+      padding: 7rem 1.5rem 4rem;
+    }
+    .hero__photo-placeholder { display: none; }
+    .hero h1 .line1 { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+    .hero h1 .line2 { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+    .hero__desc { font-size: 0.95rem; max-width: 100%; }
+    .hero__badges span { font-size: 0.78rem; }
+    .hero__actions { flex-direction: column; gap: 0.75rem; }
+    .hero__actions .btn { width: 100%; text-align: center; }
+
+    /* ── Trust bar ── */
+    .trust-bar__inner {
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .trust-item { flex: 1 1 45%; text-align: center; }
+    .trust-divider { display: none; }
+
+    /* ── About ── */
+    .intro-grid { grid-template-columns: 1fr; }
+    .about-photo-wrap {
+      margin: 0 auto 2rem;
+      max-width: 160px;
+    }
+
+    /* 타임라인 — 세로로 변환 */
+    .timeline-track {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 0 0.5rem;
+    }
+    .timeline-item {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .timeline-dot-wrap {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #timeline-line { display: none; }
+
+    /* ── Estate Planning 카드 ── */
+    .section--ivory-dk .container > div[style*="grid-template-columns:1fr 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* ── KLS 섹션 ── */
+    .why-teaser { grid-template-columns: 1fr !important; }
+    .why-teaser__left { padding: 3rem 1.5rem 2rem; }
+    .why-teaser__right { padding: 2rem 1.5rem 3rem; }
+    .why-teaser__left h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+
+    /* ── CTA 밴드 ── */
+    .cta-band__inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .cta-band__inner .btn { width: 100%; }
+
+    /* ── 섹션 패딩 ── */
+    .section { padding: 3.5rem 0; }
+    .container { padding: 0 1.2rem; }
+
+    /* ── 섹션 헤더 ── */
+    .section-header h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+    /* ── 푸터 ── */
+    .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .site-footer__legal-disclaimer { font-size: 0.75rem; }
+  }
+
+  /* ── 아주 작은 화면 (≤390px) ── */
+  @media (max-width: 390px) {
+    .hero h1 .line2 { font-size: clamp(1.6rem, 9vw, 2rem); }
+    .hero__badges span { font-size: 0.72rem; letter-spacing: 0; }
+    .trust-item { flex: 1 1 100%; }
+  }
+  </style>
 </head>
 <body>
 
