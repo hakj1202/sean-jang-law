@@ -1603,6 +1603,64 @@ p {
     .nav-dropdown__menu a { white-space: normal !important; }
   }
   </style>
+  <style>
+  @media (max-width: 768px) {
+    /* 타임라인 — 1열 세로 스택 */
+    #timeline-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    #timeline-grid > div {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0 1rem;
+      align-items: start;
+    }
+    /* 레이블 (한국/미국) */
+    #timeline-grid > div > div:nth-child(1) {
+      grid-column: 2;
+      grid-row: 1;
+      margin-bottom: 0.3rem;
+    }
+    /* 골드 동그라미 */
+    #timeline-grid > div > div:nth-child(2) {
+      grid-column: 1;
+      grid-row: 1 / 4;
+      margin-top: 0.2rem;
+      margin-bottom: 0 !important;
+    }
+    /* 타이틀 */
+    #timeline-grid > div > div:nth-child(3) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    /* 설명 */
+    #timeline-grid > div > div:nth-child(4) {
+      grid-column: 2;
+      grid-row: 3;
+    }
+    /* 가로 연결선 숨김 */
+    #timeline-grid + div,
+    div[style*="position:absolute"][style*="height:2px"] {
+      display: none !important;
+    }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    .site-nav {
+      padding: 0.9rem 1rem !important;
+    }
+    .site-nav__inner {
+      padding: 0 !important;
+      width: 100%;
+    }
+    .site-nav__logo {
+      font-size: 0.95rem;
+    }
+  }
+  </style>
 </head>
 <body>
 
@@ -1745,7 +1803,7 @@ p {
           <!-- 선: 레이블 높이(~1rem) + 점 중앙(10px) -->
           <div style="position:absolute; top:calc(1.2rem + 8px + 10px); left:0; right:0; height:2px; background:rgba(201,168,76,0.35); z-index:0;"></div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:1.5rem;">
+          <div id="timeline-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:1.5rem;">
 
             <!-- 한국 -->
             <div style="position:relative;">
@@ -2125,6 +2183,25 @@ p {
   try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
   applyLang(saved);
 })();
+</script>
+
+<script>
+  // 햄버거 메뉴
+  var hamburger = document.querySelector('.nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', function() {
+      var isOpen = nav.classList.toggle('mobile-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    // 메뉴 링크 클릭 시 닫기
+    document.querySelectorAll('.site-nav__links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        nav.classList.remove('mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 </script>
 </body>
 </html>
