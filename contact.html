@@ -1717,6 +1717,7 @@ p {
           action="https://formspree.io/f/mlgpybal"
           method="POST"
           id="contact-form"
+          onsubmit="return false;"
         >
           <!-- Formspree 설정 -->
           <input type="hidden" name="_replyto" value="syjang8175@gmail.com">
@@ -1820,7 +1821,7 @@ p {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // 폼 제출 처리
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', async (e) => {
