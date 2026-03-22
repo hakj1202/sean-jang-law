@@ -1605,46 +1605,7 @@ p {
   </style>
   <style>
   @media (max-width: 768px) {
-    /* 타임라인 — 1열 세로 스택 */
-    #timeline-grid {
-      grid-template-columns: 1fr !important;
-      gap: 2rem !important;
-    }
-    #timeline-grid > div {
-      display: grid;
-      grid-template-columns: 32px 1fr;
-      grid-template-rows: auto auto auto;
-      gap: 0 1rem;
-      align-items: start;
-    }
-    /* 레이블 (한국/미국) */
-    #timeline-grid > div > div:nth-child(1) {
-      grid-column: 2;
-      grid-row: 1;
-      margin-bottom: 0.3rem;
-    }
-    /* 골드 동그라미 */
-    #timeline-grid > div > div:nth-child(2) {
-      grid-column: 1;
-      grid-row: 1 / 4;
-      margin-top: 0.2rem;
-      margin-bottom: 0 !important;
-    }
-    /* 타이틀 */
-    #timeline-grid > div > div:nth-child(3) {
-      grid-column: 2;
-      grid-row: 2;
-    }
-    /* 설명 */
-    #timeline-grid > div > div:nth-child(4) {
-      grid-column: 2;
-      grid-row: 3;
-    }
-    /* 가로 연결선 숨김 */
-    #timeline-grid + div,
-    div[style*="position:absolute"][style*="height:2px"] {
-      display: none !important;
-    }
+    
   }
   </style>
   <style>
@@ -1661,6 +1622,95 @@ p {
     }
   }
   </style>
+  <style>
+  @media (max-width: 768px) {
+    /* 모바일 오픈 메뉴에 상담 예약 버튼 */
+    .site-nav.mobile-open .site-nav__cta {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .site-nav.mobile-open .btn-primary {
+      display: inline-flex !important;
+      width: 200px;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .site-nav.mobile-open .lang-toggle {
+      display: flex !important;
+    }
+    /* 모바일 오픈 시 cta를 links 아래로 배치 */
+    .site-nav.mobile-open .site-nav__inner {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+      background: var(--navy-900, #0B1F3A);
+      z-index: 998;
+    }
+    .site-nav.mobile-open .site-nav__logo {
+      display: none;
+    }
+    .site-nav.mobile-open .nav-hamburger {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.2rem;
+      z-index: 1000;
+    }
+  }
+  </style>
+  
+<style>
+@media (max-width: 768px) {
+  #timeline-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+  }
+
+  /* 각 아이템: 레이블 한 줄, 점+라인 한 줄, 내용 한 줄 */
+  #timeline-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+  }
+
+  /* 레이블 (한국/미국/현재) */
+  #timeline-grid > div > div:nth-child(1) {
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* 골드 점 + 오른쪽으로 가로선 */
+  #timeline-grid > div > div:nth-child(2) {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+  }
+  #timeline-grid > div > div:nth-child(2)::after {
+    content: '' !important;
+    display: block !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background: rgba(201,168,76,0.4) !important;
+    margin-left: 6px !important;
+  }
+
+  /* 타이틀 */
+  #timeline-grid > div > div:nth-child(3) {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* 설명 */
+  #timeline-grid > div > div:nth-child(4) {
+    font-size: 0.82rem !important;
+  }
+}
+</style>
 </head>
 <body>
 
