@@ -1717,7 +1717,6 @@ p {
           action="https://formspree.io/f/mlgpybal"
           method="POST"
           id="contact-form"
-          onsubmit="return false;"
         >
           <!-- Formspree 설정 -->
           <input type="hidden" name="_replyto" value="syjang8175@gmail.com">
@@ -1820,22 +1819,38 @@ p {
     </div>
   </div>
 </footer>
-
 <script>
-  // 폼 제출 처리
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', async (e) => {
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('contact-form');
+  var success = document.getElementById('form-success');
+
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
+
+    var btn = form.querySelector('button[type="submit"]');
     btn.textContent = '전송 중...';
     btn.disabled = true;
 
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
+    fetch('https://formspree.io/f/mlgpybal', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res) {
       if (res.ok) {
         form.style.display = 'none';
-        documen
+        success.style.display = 'block';
+      } else {
+        btn.textContent = '오류 발생. 다시 시도해 주세요.';
+        btn.disabled = false;
+      }
+    })
+    .catch(function() {
+      btn.textContent = '오류 발생. 다시 시도해 주세요.';
+      btn.disabled = false;
+    });
+  });
+});
+</script>
+</body>
+</html>
