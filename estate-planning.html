@@ -1493,5 +1493,76 @@ p {
   });
 </script>
 
+
+<script>
+  (function() {
+    var hamburger = document.querySelector('.nav-hamburger');
+    var nav = document.querySelector('.site-nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('mobile-open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+      document.querySelectorAll('.site-nav__links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          nav.classList.remove('mobile-open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+</script>
+
+<style>
+  .btn-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: var(--navy-900, #0B1F3A);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: #C9A84C;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s, background 0.2s;
+    border-radius: 0;
+  }
+  .btn-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .btn-top:hover {
+    background: rgba(201,168,76,0.15);
+  }
+  @media (max-width: 768px) {
+    .btn-top {
+      bottom: 1.2rem;
+      right: 1.2rem;
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<button class="btn-top" id="btn-top" aria-label="맨 위로">&#8679;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('btn-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
 </body>
 </html>
