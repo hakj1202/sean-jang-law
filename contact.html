@@ -1688,6 +1688,41 @@ p {
     .btn[type="submit"], button[type="submit"] { width: 100%; }
   }
   </style>
+  <style>
+  /* ── 모바일 가로 오버플로우 방지 ── */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  img, video, iframe { max-width: 100%; }
+  @media (max-width: 768px) {
+    .container { width: 100%; max-width: 100%; padding: 0 1.2rem; }
+    .site-nav__inner { max-width: 100%; }
+    section, footer, header { max-width: 100%; overflow-x: hidden; }
+    /* 고정 너비 요소 제한 */
+    [style*="min-width"] { min-width: 0 !important; }
+    /* 그리드 오버플로우 방지 */
+    .site-footer__grid,
+    .why-layout,
+    .practice-layout,
+    .intro-grid,
+    .timeline-track { max-width: 100%; }
+    /* 인라인 스타일 그리드 1열 강제 */
+    div[style*="grid-template-columns:1fr 1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    div[style*="grid-template-columns:1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    /* 긴 텍스트 줄바꿈 */
+    p, h1, h2, h3, h4, li, td, th, span {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    /* white-space: nowrap 오버라이드 */
+    .nav-dropdown__menu a { white-space: normal !important; }
+  }
+  </style>
 </head>
 <body>
 
