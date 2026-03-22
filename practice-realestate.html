@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>상담 예약 — Law Office of Sean Jang</title>
+  <title>Real Estate — Law Office of Sean Jang</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -968,7 +968,7 @@ p {
       position: relative;
       z-index: 2;
       min-height: 100vh;
-      width: 58%;
+      width: 52%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1020,7 +1020,7 @@ p {
     .hero__badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.5rem;
       margin-bottom: 2.5rem;
     }
 
@@ -1428,209 +1428,166 @@ p {
       .cta-band__inner  { flex-direction: column; text-align: center; }
     }
   </style>
-  <style>
-    html { scroll-behavior: smooth; }
+  
+<style>
+  html { scroll-behavior: smooth; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown__trigger { cursor: pointer; }
+  .nav-dropdown__menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 0;
+    background: var(--navy-800, #122848);
+    border: 1px solid rgba(201,168,76,0.2);
+    min-width: 200px;
+    z-index: 100;
+    flex-direction: column;
+  }
+  .nav-dropdown:hover .nav-dropdown__menu { display: flex; }
+  .nav-dropdown__menu a {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(250,248,242,0.8);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-dropdown__menu a:last-child { border-bottom: none; }
+  .nav-dropdown__menu a:hover {
+    background: rgba(201,168,76,0.08);
+    color: var(--gold-400, #E0CC96);
+  }
 
-    .contact-hero {
-      background: var(--navy-900);
-      padding: 8rem 0 4rem;
-      text-align: center;
-    }
-    .contact-hero .overline { color: var(--gold-400); }
-    .contact-hero h1 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      color: var(--ivory);
-      letter-spacing: -0.03em;
-      margin: 1rem 0 1rem;
-    }
-    .contact-hero p {
-      font-size: 0.95rem;
-      color: rgba(250,248,242,0.6);
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.75;
-      word-break: keep-all;
-    }
+  /* Practice 내부 고정 사이드 메뉴 */
+  .practice-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+  .practice-sidebar {
+    position: sticky;
+    top: 90px;
+    padding: 2rem 0;
+    border-right: 1px solid rgba(11,31,58,0.1);
+  }
+  .practice-sidebar__label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-500, #C9A84C);
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .practice-sidebar a {
+    display: block;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-mid, #4A5568);
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .practice-sidebar a:hover,
+  .practice-sidebar a.active {
+    color: var(--navy-900, #0B1F3A);
+    border-left-color: var(--gold-500, #C9A84C);
+    background: rgba(201,168,76,0.05);
+    font-weight: 700;
+  }
+  .practice-content {
+    padding: 3rem 3.5rem;
+  }
 
-    .contact-body {
-      background: var(--ivory);
-      padding: 5rem 0 6rem;
-    }
+  /* Practice 헤더 */
+  .practice-hero {
+    background: var(--navy-900, #0B1F3A);
+    padding: 7rem 0 4rem;
+    text-align: center;
+  }
+  .practice-hero .overline { color: var(--gold-400, #E0CC96); }
+  .practice-hero h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    color: var(--ivory, #FAF8F2);
+    letter-spacing: -0.03em;
+    margin: 0.8rem 0 0.8rem;
+  }
+  .practice-hero p {
+    font-size: 0.95rem;
+    color: rgba(250,248,242,0.6);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.75;
+    word-break: keep-all;
+  }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 5rem;
-      align-items: start;
-    }
+  /* 본문 타이포 */
+  .practice-content h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--navy-900, #0B1F3A);
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.75rem;
+  }
+  .practice-content h2:first-child { margin-top: 0; }
+  .practice-content p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--text-mid, #4A5568);
+    word-break: keep-all;
+    margin-bottom: 1rem;
+  }
+  .practice-content .gold-rule { margin: 0.5rem 0 1.5rem; }
 
-    /* 왼쪽 안내 */
-    .contact-info__overline {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-500);
-      margin-bottom: 0.6rem;
-    }
-    .contact-info__rule {
-      width: 2rem; height: 2px;
-      background: var(--gold-500);
-      margin-bottom: 1.2rem;
-    }
-    .contact-info h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--navy-900);
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .contact-info p {
-      font-size: 0.88rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-      word-break: keep-all;
-      margin-bottom: 2rem;
-    }
-    .contact-info__items {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact-info__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-    .contact-info__icon {
-      font-size: 1rem;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-    .contact-info__label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--gold-600);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.15rem;
-    }
-    .contact-info__value {
-      font-size: 0.88rem;
-      color: var(--navy-900);
-      font-weight: 500;
-    }
+  .practice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1.5rem 0 2rem;
+  }
+  .practice-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(11,31,58,0.07);
+    font-size: 0.92rem;
+    color: var(--text-mid, #4A5568);
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+  .practice-list__item::before {
+    content: '✦';
+    color: var(--gold-500, #C9A84C);
+    font-size: 0.55rem;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
 
-    /* 오른쪽 폼 */
-    .contact-form {
-      background: white;
-      padding: 2.5rem;
-      border: 1px solid rgba(11,31,58,0.08);
-      box-shadow: 0 4px 24px rgba(11,31,58,0.06);
-    }
-    .form-group {
-      margin-bottom: 1.4rem;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--navy-900);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.45rem;
-    }
-    .form-group label .required {
-      color: var(--gold-600);
-      margin-left: 2px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--navy-900);
-      background: var(--ivory);
-      border: 1px solid rgba(11,31,58,0.15);
-      padding: 0.75rem 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-      appearance: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold-500);
-      background: white;
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-      line-height: 1.7;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-note {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      margin-top: 0.3rem;
-      line-height: 1.5;
-    }
-    .form-submit {
-      margin-top: 1.8rem;
-    }
-    .form-submit .btn {
-      width: 100%;
-      justify-content: center;
-      padding: 1.1rem;
-      font-size: 1rem;
-    }
-    .form-disclaimer {
-      font-size: 0.72rem;
-      color: var(--text-light);
-      text-align: center;
-      margin-top: 1rem;
-      line-height: 1.6;
-    }
+  .practice-cta {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(11,31,58,0.04);
+    border-left: 3px solid var(--gold-500, #C9A84C);
+  }
+  .practice-cta p {
+    font-size: 0.9rem;
+    color: var(--navy-900, #0B1F3A);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
 
-    /* 성공 메시지 */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 3rem 2rem;
-    }
-    .form-success__icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .form-success h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--navy-900);
-      margin-bottom: 0.75rem;
-    }
-    .form-success p {
-      font-size: 0.88rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form { padding: 1.5rem; }
-    }
-  </style>
-  <style>
-  </style>
+  @media (max-width: 768px) {
+    .practice-layout { grid-template-columns: 1fr; }
+    .practice-sidebar { position: static; border-right: none; border-bottom: 1px solid rgba(11,31,58,0.1); padding: 1rem 0; }
+    .practice-content { padding: 2rem 1rem; }
+  }
+</style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav class="site-nav">
   <div class="site-nav__inner">
     <a href="sean-jang-estate-planning.html" class="site-nav__logo">
@@ -1654,7 +1611,7 @@ p {
         <div class="lang-toggle__divider"></div>
         <button class="lang-toggle__btn" data-lang="en">EN</button>
       </div>
-      <a href="contact.html" class="btn btn-primary active">상담 예약</a>
+      <a href="contact.html" class="btn btn-primary">상담 예약</a>
       <button class="nav-hamburger" aria-label="메뉴 열기" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1662,130 +1619,63 @@ p {
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="contact-hero">
+<section class="practice-hero">
   <div class="container">
-    <p class="overline">무료 초기 상담</p>
+    <p class="overline">Practice Areas</p>
     <span class="gold-rule gold-rule--center"></span>
-    <h1>상담 예약</h1>
-    <p>첫 상담은 무료입니다. 편하게 상황을 말씀해 주시면<br>Sean Jang 변호사가 직접 연락드립니다.</p>
+    <h1>Real Estate</h1>
+    <p>미국과 한국, 양국의 부동산 투자 및 취득.<br>두 나라 법률을 모두 아는 변호사가 직접 자문합니다.</p>
   </div>
 </section>
 
-<!-- BODY -->
-<section class="contact-body">
+<section style="background:var(--ivory); padding: 4rem 0 6rem;">
   <div class="container">
-    <div class="contact-grid">
+    <div class="practice-layout">
 
-      <!-- 왼쪽 안내 -->
-      <div class="contact-info">
-        <div class="contact-info__overline">연락처 정보</div>
-        <div class="contact-info__rule"></div>
-        <h2>직접 연락하셔도 됩니다</h2>
-        <p>양식을 작성하시거나, 아래 연락처로 직접 연락 주셔도 됩니다. 한국어·영어 모두 편하게 이용하세요.</p>
+      <aside class="practice-sidebar">
+        <div class="practice-sidebar__label">Practice Areas</div>
+        <a href="practice-estate.html">Estate Planning</a>
+        <a href="practice-inheritance.html">Korean Inheritance</a>
+        <a href="practice-realestate.html" class="active">Real Estate</a>
+      </aside>
 
-        <div class="contact-info__items">
-          <div class="contact-info__item">
-            <div class="contact-info__icon">📞</div>
-            <div>
-              <div class="contact-info__label">전화</div>
-              <div class="contact-info__value">+1 (XXX) XXX-XXXX</div>
-            </div>
-          </div>
-          <div class="contact-info__item">
-            <div class="contact-info__icon">✉️</div>
-            <div>
-              <div class="contact-info__label">이메일</div>
-              <div class="contact-info__value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="43303a29222d247b72747603242e222a2f6d202c2e">[email&#160;protected]</a></div>
-            </div>
-          </div>
-          <div class="contact-info__item">
-            <div class="contact-info__icon">📍</div>
-            <div>
-              <div class="contact-info__label">위치</div>
-              <div class="contact-info__value">San Diego, CA</div>
-            </div>
-          </div>
-          <div class="contact-info__item">
-            <div class="contact-info__icon">🕐</div>
-            <div>
-              <div class="contact-info__label">상담 방식</div>
-              <div class="contact-info__value">전화 · 화상 · 대면 가능</div>
-            </div>
-          </div>
+      <div class="practice-content">
+
+        <h2>미국 부동산 투자 및 취득 자문</h2>
+        <span class="gold-rule"></span>
+        <p>캘리포니아를 비롯한 미국 부동산 투자는 한국인에게 매력적인 자산 운용 수단이지만, 취득 구조, 세금, 상속 등 고려해야 할 법적 사항이 많습니다. 특히 외국인 신분으로 미국 부동산을 취득하거나 투자 목적으로 법인을 설립할 때는 전문 법률 자문이 필수입니다.</p>
+        <div class="practice-list">
+          <div class="practice-list__item"><strong>부동산 취득 구조 자문</strong> — 개인 명의, LLC, Trust 등 취득 구조별 장단점 분석 및 추천</div>
+          <div class="practice-list__item"><strong>계약서 검토 및 협상</strong> — 매매 계약서, 임대차 계약서 등 법률 검토 및 협상 대리</div>
+          <div class="practice-list__item"><strong>LLC 설립 및 운영 자문</strong> — 부동산 투자를 위한 법인 설립 및 운영 구조 설계</div>
+          <div class="practice-list__item"><strong>부동산 분쟁 자문</strong> — 매매·임대차 분쟁, 경계 분쟁 등 법률 자문 및 조정</div>
+          <div class="practice-list__item"><strong>Trust를 통한 부동산 상속 설계</strong> — 미국 부동산을 Probate 없이 자녀에게 이전하는 구조 설계</div>
         </div>
-      </div>
 
-      <!-- 오른쪽 폼 -->
-      <div class="contact-form" id="contact-form-wrap">
-        <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST"
-          id="contact-form"
-        >
-          <!-- Formspree 설정 -->
-          <input type="hidden" name="_replyto" value="syjang8175@gmail.com">
-          <input type="hidden" name="_subject" value="[Sean Jang Law] 새 상담 예약 요청">
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>이름 <span class="required">*</span></label>
-              <input type="text" name="name" placeholder="홍길동" required>
-            </div>
-            <div class="form-group">
-              <label>전화번호 <span class="required">*</span></label>
-              <input type="tel" name="phone" placeholder="+1 (xxx) xxx-xxxx" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>이메일 <span class="required">*</span></label>
-            <input type="email" name="email" placeholder="example@email.com" required>
-          </div>
-
-          <div class="form-group">
-            <label>선호 상담 일정</label>
-            <input type="text" name="preferred_date" placeholder="예: 평일 오전, 주말 오후, 특정 날짜 등">
-            <div class="form-note">가능하신 일정을 자유롭게 적어주세요. 확정은 연락 후 조율합니다.</div>
-          </div>
-
-          <div class="form-group">
-            <label>상담 방식</label>
-            <select name="meeting_type">
-              <option value="">선택해 주세요</option>
-              <option value="전화 상담">전화 상담</option>
-              <option value="화상 상담 (Zoom)">화상 상담 (Zoom)</option>
-              <option value="대면 상담">대면 상담</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>상담 요청 사항 <span class="required">*</span></label>
-            <textarea name="message" placeholder="현재 상황이나 궁금하신 점을 간략히 적어주세요. (예: 신탁 설계 문의, 유언장 작성, 한국 자산 처리 등)" required></textarea>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn btn-primary">상담 예약 신청하기</button>
-          </div>
-          <p class="form-disclaimer">
-            본 양식을 통해 제출된 정보는 상담 목적으로만 사용됩니다.<br>
-            제출이 변호사-의뢰인 관계를 형성하지 않습니다.
-          </p>
-        </form>
-
-        <!-- 제출 완료 메시지 -->
-        <div class="form-success" id="form-success">
-          <div class="form-success__icon">✅</div>
-          <h3>신청이 접수되었습니다</h3>
-          <p>빠른 시일 내에 Sean Jang 변호사가 직접 연락드리겠습니다.<br>감사합니다.</p>
+        <h2>한국 부동산 관련 자문</h2>
+        <span class="gold-rule"></span>
+        <p>미국에 거주하면서 한국 부동산을 보유하거나 취득하는 경우, 한국 부동산 거래법, 외국환 규정, 양도소득세, 상속세 등 복잡한 법적 문제가 발생할 수 있습니다. 한국 변호사 자격을 보유한 Sean Jang 변호사가 미국에서 한국 부동산 문제를 직접 자문해 드립니다.</p>
+        <div class="practice-list">
+          <div class="practice-list__item"><strong>미국 거주자의 한국 부동산 취득 자문</strong> — 외국환 송금, 취득 절차, 세금 등 전반적 법률 자문</div>
+          <div class="practice-list__item"><strong>한국 부동산 매도 및 자금 송금 자문</strong> — 양도소득세 신고, 해외 송금 규정, 미국 내 신고 의무 등</div>
+          <div class="practice-list__item"><strong>한국 부동산 상속 자문</strong> — 미국 거주 상속인의 한국 부동산 상속 절차 및 세금 자문</div>
+          <div class="practice-list__item"><strong>한미 부동산 포트폴리오 통합 관리</strong> — 양국 자산을 하나의 Estate Plan으로 통합하는 전략 설계</div>
         </div>
-      </div>
 
+        <h2>왜 양국 자격 변호사가 필요한가?</h2>
+        <span class="gold-rule"></span>
+        <p>미국 부동산과 한국 부동산을 모두 다루려면 두 나라의 법률, 세금, 외국환 규정을 동시에 이해해야 합니다. 미국 변호사만으로는 한국 법률 부분을, 한국 변호사만으로는 미국 법률 부분을 커버할 수 없습니다. Sean Jang 변호사는 두 자격을 모두 보유한 극히 드문 케이스로, 한국어로 소통하며 양국 부동산 문제를 원스톱으로 자문해 드릴 수 있습니다.</p>
+
+        <div class="practice-cta">
+          <p>미국 또는 한국 부동산 관련 법률 자문이 필요하시다면 무료 상담으로 시작하세요.</p>
+          <a href="contact.html" class="btn btn-primary">무료 상담 예약하기</a>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__grid">
@@ -1800,20 +1690,18 @@ p {
         </p>
       </div>
       <div>
-        <div class="site-footer__col-title">메뉴</div>
+        <div class="site-footer__col-title">Practice Areas</div>
         <ul>
-          <li><a href="sean-jang-estate-planning.html#hero">홈</a></li>
-          <li><a href="sean-jang-estate-planning.html#about">변호사 소개</a></li>
-          <li><a href="sean-jang-estate-planning.html#why">Why Estate Planning</a></li>
-          <li><a href="sean-jang-estate-planning.html#services">What We Do</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="practice-estate.html">Estate Planning</a></li>
+          <li><a href="practice-inheritance.html">Korean Inheritance</a></li>
+          <li><a href="practice-realestate.html">Real Estate</a></li>
         </ul>
       </div>
       <div>
         <div class="site-footer__col-title">연락처</div>
         <ul>
           <li><a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#77040e1d1619104f46404237101a161e1b5914181a"><span class="__cf_email__" data-cfemail="57242e3d3639306f66606217303a363e3b7934383a">[email&#160;protected]</span></a></li>
+          <li><a href="mailto:syjang8175@gmail.com">syjang8175@gmail.com</a></li>
           <li><a href="#">San Diego, CA</a></li>
         </ul>
       </div>
@@ -1825,21 +1713,5 @@ p {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // 폼 제출 처리
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '전송 중...';
-    btn.disabled = true;
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.style.display = 'none';
-        documen
+</body>
+</html>
