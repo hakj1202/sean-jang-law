@@ -1885,22 +1885,23 @@ p {
 }
 </style>
 <style>
-.lang-ko { display: none !important; }
-.lang-en { display: inline !important; }
-.lang-ko.block, p.lang-ko, h1.lang-ko, div.lang-ko { display: none !important; }
-p.lang-en, h1.lang-en, div.lang-en { display: block !important; }
-body.ko .lang-ko { display: block !important; }
-body.ko p.lang-ko { display: block !important; }
-body.ko h1.lang-ko { display: block !important; }
-body.ko span.lang-ko { display: inline !important; }
-body.ko div.lang-ko { display: block !important; }
+/* 기본: KO */
+.lang-en { display: none !important; }
+.lang-ko { display: inline !important; }
+p.lang-ko, h1.lang-ko, div.lang-ko { display: block !important; }
+
+/* KO 명시 */
+body.ko .lang-ko { display: inline !important; }
+body.ko p.lang-ko, body.ko h1.lang-ko, body.ko div.lang-ko { display: block !important; }
 body.ko .lang-en { display: none !important; }
+
+/* EN */
+body.en .lang-en { display: inline !important; }
+body.en p.lang-en, body.en h1.lang-en, body.en div.lang-en { display: block !important; }
 body.en .lang-ko { display: none !important; }
-body.en .lang-en { display: block !important; }
-body.en span.lang-en { display: inline !important; }
 </style>
 </head>
-<body>
+<body class="ko">
 
 <!-- NAV -->
 <nav class="site-nav">
