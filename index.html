@@ -1440,52 +1440,6 @@ p {
       .why-teaser { grid-template-columns: 1fr; }
       .why-teaser__left, .why-teaser__right { padding: 3rem 2rem; }
     }
-  
-  /* 타임라인 dot + line wrapper */
-  .tl-dot-row {
-    display: none; /* 데스크탑에서 숨김 — 원래 dot만 사용 */
-  }
-  @media (max-width: 768px) {
-    .tl-dot-row {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: center !important;
-      width: 100% !important;
-      margin-bottom: 0.8rem !important;
-    }
-    .tl-dot {
-      display: block;
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      min-height: 20px;
-      border-radius: 50%;
-      background: var(--gold-500, #C9A84C);
-      border: 3px solid var(--ivory, #FAF8F2);
-      flex-shrink: 0;
-      box-sizing: content-box;
-    }
-    .tl-line {
-      display: block;
-      flex: 1;
-      height: 2px;
-      background: rgba(201,168,76,0.4);
-      margin-left: 8px;
-    }
-    /* 기존 nth-child(2) 규칙 무효화 */
-    #timeline-grid > div > div:nth-child(2) {
-      display: none !important;
-    }
-    #timeline-grid > div > div:nth-child(2)::after {
-      display: none !important;
-    }
-    /* nth-child 재조정 — wrapper 추가되어 순서 변경 */
-    #timeline-grid > div > div:nth-child(1) { margin-bottom: 0.4rem !important; }
-    #timeline-grid > div > .tl-dot-row { order: 2; }
-    #timeline-grid > div > div:nth-child(3) { font-size: 0.95rem !important; margin-bottom: 0.3rem !important; }
-    #timeline-grid > div > div:nth-child(4) { font-size: 0.82rem !important; line-height: 1.65 !important; }
-  }
-</style>
 
 <style>
   html { scroll-behavior: smooth; }
@@ -1659,7 +1613,71 @@ p {
   .hero h1 .line2 { font-size: clamp(1.6rem, 9vw, 2rem); }
   .trust-item { flex: 1 1 100%; }
 }
-</style></head>
+</style><style>
+/* 타임라인 데스크탑: tl-dot-row 숨김 (원래 absolute dot 사용) */
+.tl-dot-row { display: none; }
+
+@media (max-width: 768px) {
+  /* 타임라인 전체 컨테이너 */
+  #timeline-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* 데스크탑 가로선 숨김 */
+  #timeline-grid ~ div[style*="position:absolute"],
+  div[style*="top:calc(1.2rem"][style*="height:2px"] {
+    display: none !important;
+  }
+  /* 각 아이템 */
+  #timeline-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  /* 레이블 (한국/미국/현재) */
+  #timeline-grid > div > div:first-child {
+    margin-bottom: 0.5rem !important;
+  }
+  /* tl-dot-row: 동그라미 + 가로선 */
+  #timeline-grid > div .tl-dot-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .tl-dot {
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    border-radius: 50% !important;
+    background: var(--gold-500, #C9A84C) !important;
+    border: 3px solid var(--ivory, #FAF8F2) !important;
+    flex-shrink: 0 !important;
+    box-sizing: content-box !important;
+  }
+  .tl-line {
+    display: block !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background: rgba(201,168,76,0.4) !important;
+    margin-left: 8px !important;
+  }
+  /* 타이틀 */
+  #timeline-grid > div > div:nth-child(3) {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  /* 설명 */
+  #timeline-grid > div > div:nth-child(4) {
+    font-size: 0.82rem !important;
+    line-height: 1.65 !important;
+  }
+}
+</style>
+</head>
 <body>
 
 <!-- ══════════════════════════════
