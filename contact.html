@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>상담 예약 — Law Office of Sean Jang</title>
+  <title>Book a Consultation — Law Office of Sean Jang</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -1917,10 +1917,13 @@ p {
 <!-- HERO -->
 <section class="contact-hero">
   <div class="container">
-    <p class="overline">무료 초기 상담</p>
+    <p class="overline lang-ko" style="display:none;">무료 초기 상담</p>
+    <p class="overline lang-en">Free Initial Consultation</p>
     <span class="gold-rule gold-rule--center"></span>
-    <h1>상담 예약</h1>
-    <p>첫 상담은 무료입니다. 편하게 상황을 말씀해 주시면<br>Sean Jang 변호사가 직접 연락드립니다.</p>
+    <h1 class="lang-ko" style="display:none;">상담 예약</h1>
+    <h1 class="lang-en">Book a Consultation</h1>
+    <p class="lang-ko" style="display:none;">첫 상담은 무료입니다. 편하게 상황을 말씀해 주시면 Sean Jang 변호사가 직접 연락드립니다.</p>
+    <p class="lang-en">Your first consultation is complimentary. Share a brief overview of your situation, and Attorney Sean Jang will reach out to you directly.</p>
   </div>
 </section>
 
@@ -1942,55 +1945,55 @@ p {
 
           <div class="form-row">
             <div class="form-group">
-              <label>이름 <span class="required">*</span></label>
-              <input type="text" name="name" placeholder="홍길동" required>
+              <label><span class="lang-ko" style="display:none;">이름</span><span class="lang-en">Full Name</span> <span class="required">*</span></label>
+              <input type="text" name="name" placeholder="Your full name" data-ph-ko="홍길동" data-ph-en="Your full name" required>
             </div>
             <div class="form-group">
-              <label>전화번호 <span class="required">*</span></label>
+              <label><span class="lang-ko" style="display:none;">전화번호</span><span class="lang-en">Phone Number</span> <span class="required">*</span></label>
               <input type="tel" name="phone" placeholder="+1 (xxx) xxx-xxxx" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label>이메일 <span class="required">*</span></label>
+            <label><span class="lang-ko" style="display:none;">이메일</span><span class="lang-en">Email Address</span> <span class="required">*</span></label>
             <input type="email" name="email" placeholder="example@email.com" required>
           </div>
 
           <div class="form-group">
-            <label>선호 상담 일정</label>
-            <input type="text" name="preferred_date" placeholder="예: 평일 오전, 주말 오후, 특정 날짜 등">
-            <div class="form-note">가능하신 일정을 자유롭게 적어주세요. 확정은 연락 후 조율합니다.</div>
+            <label><span class="lang-ko" style="display:none;">선호 상담 일정</span><span class="lang-en">Preferred Schedule</span></label>
+            <input type="text" name="preferred_date" placeholder="e.g., Weekday mornings, weekend afternoons, or a specific date" data-ph-ko="예: 평일 오전, 주말 오후, 특정 날짜 등" data-ph-en="e.g., Weekday mornings, weekend afternoons, or a specific date">
+            <div class="form-note lang-ko" style="display:none;">가능하신 일정을 자유롭게 적어주세요. 확정은 연락 후 조율합니다.</div><div class="form-note lang-en">Feel free to suggest your availability. We will confirm a time that works for both parties.</div>
           </div>
 
           <div class="form-group">
-            <label>상담 방식</label>
+            <label><span class="lang-ko" style="display:none;">상담 방식</span><span class="lang-en">Preferred Contact Method</span></label>
             <select name="meeting_type">
-              <option value="">선택해 주세요</option>
-              <option value="전화 상담">전화 상담</option>
-              <option value="이메일 상담">이메일 상담</option>
-              <option value="카카오톡 상담">카카오톡 상담</option>
+              <option value="" class="lang-ko opt-ko" data-ko="선택해 주세요" data-en="Please select">선택해 주세요</option>
+              <option value="전화 상담" class="opt-ko" data-ko="전화 상담" data-en="Phone Consultation">전화 상담</option>
+              <option value="이메일 상담" class="opt-ko" data-ko="이메일 상담" data-en="Email Consultation">이메일 상담</option>
+              <option value="카카오톡 상담" class="opt-ko" data-ko="카카오톡 상담" data-en="KakaoTalk Consultation">카카오톡 상담</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>상담 요청 사항 <span class="required">*</span></label>
-            <textarea name="message" placeholder="현재 상황이나 궁금하신 점을 간략히 적어주세요. (예: 신탁 설계 문의, 유언장 작성, 한국 자산 처리 등)" required></textarea>
+            <label><span class="lang-ko" style="display:none;">상담 요청 사항</span><span class="lang-en">How Can We Help You?</span> <span class="required">*</span></label>
+            <textarea name="message" placeholder="Please briefly describe your situation or the nature of your inquiry." data-ph-ko="현재 상황이나 궁금하신 점을 간략히 적어주세요. (예: 신탁 설계 문의, 유언장 작성, 한국 자산 처리 등)" data-ph-en="Please briefly describe your situation or the nature of your inquiry." required></textarea>
           </div>
 
           <div class="form-submit">
-            <button type="submit" class="btn btn-primary">상담 예약 신청하기</button>
+            <button type="submit" class="btn btn-primary"><span class="lang-ko" style="display:none;">상담 예약 신청하기</span><span class="lang-en">Request a Consultation</span></button>
           </div>
           <p class="form-disclaimer">
-            본 양식을 통해 제출된 정보는 상담 목적으로만 사용됩니다.<br>
-            제출이 변호사-의뢰인 관계를 형성하지 않습니다.
+<span class="lang-ko" style="display:none;">본 양식을 통해 제출된 정보는 상담 목적으로만 사용됩니다.<br>제출이 변호사-의뢰인 관계를 형성하지 않습니다.</span>
+            <span class="lang-en">Information submitted through this form is used solely for consultation purposes.<br>Submission does not establish an attorney-client relationship.</span>
           </p>
         </form>
 
         <!-- 제출 완료 메시지 -->
         <div class="form-success" id="form-success">
           <div class="form-success__icon">✅</div>
-          <h3>신청이 접수되었습니다</h3>
-          <p>빠른 시일 내에 Sean Jang 변호사가 직접 연락드리겠습니다.<br>감사합니다.</p>
+          <h3><span class="lang-ko" style="display:none;">신청이 접수되었습니다</span><span class="lang-en">Your request has been received.</span></h3>
+          <p><span class="lang-ko" style="display:none;">빠른 시일 내에 Sean Jang 변호사가 직접 연락드리겠습니다.<br>감사합니다.</span><span class="lang-en">Attorney Sean Jang will be in touch with you shortly.<br>Thank you for reaching out.</span></p>
         </div>
       </div>
 
@@ -2137,6 +2140,44 @@ document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   })();
+</script>
+
+<script>
+(function() {
+  function applyContactLang(lang) {
+    // lang-ko / lang-en 토글
+    document.querySelectorAll('.lang-ko').forEach(function(el) {
+      el.style.display = lang === 'ko' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-en').forEach(function(el) {
+      el.style.display = lang === 'en' ? '' : 'none';
+    });
+    // placeholder 교체
+    document.querySelectorAll('[data-ph-ko]').forEach(function(el) {
+      el.placeholder = lang === 'ko' ? el.getAttribute('data-ph-ko') : el.getAttribute('data-ph-en');
+    });
+    // select option 텍스트 교체
+    document.querySelectorAll('[data-ko]').forEach(function(el) {
+      if (el.tagName === 'OPTION') el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
+    });
+    // KO/EN 버튼 active
+    document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyContactLang(btn.getAttribute('data-lang'));
+    });
+  });
+
+  // 초기 언어 적용
+  var saved = 'ko';
+  try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
+  applyContactLang(saved);
+})();
 </script>
 </body>
 </html>
