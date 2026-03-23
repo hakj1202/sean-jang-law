@@ -2044,15 +2044,19 @@ p {
 <script>
 (function() {
   function applyLang(lang) {
-    // lang-ko 요소
     var koEls = document.querySelectorAll('.lang-ko');
     for (var i = 0; i < koEls.length; i++) {
-      koEls[i].style.setProperty('display', lang === 'ko' ? '' : 'none', 'important');
+      var el = koEls[i];
+      var tag = el.tagName.toLowerCase();
+      var block = (tag === 'p' || tag === 'h1' || tag === 'h2' || tag === 'div' || tag === 'section') ? 'block' : 'inline';
+      el.setAttribute('style', lang === 'ko' ? 'display:' + block + '!important' : 'display:none!important');
     }
-    // lang-en 요소
     var enEls = document.querySelectorAll('.lang-en');
     for (var i = 0; i < enEls.length; i++) {
-      enEls[i].style.setProperty('display', lang === 'en' ? '' : 'none', 'important');
+      var el = enEls[i];
+      var tag = el.tagName.toLowerCase();
+      var block = (tag === 'p' || tag === 'h1' || tag === 'h2' || tag === 'div' || tag === 'section') ? 'block' : 'inline';
+      el.setAttribute('style', lang === 'en' ? 'display:' + block + '!important' : 'display:none!important');
     }
     // placeholder
     var phEls = document.querySelectorAll('[data-ph-ko]');
