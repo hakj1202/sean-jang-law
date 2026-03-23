@@ -1734,21 +1734,7 @@ p {
 <style>
 @media (max-width: 768px) {
 
-  /* ── 타임라인 동그라미 찌그러짐 방지 ── */
-  #timeline-grid > div > div:nth-child(2) {
-    width: 20px !important;
-    height: 20px !important;
-    min-width: 20px !important;
-    min-height: 20px !important;
-    border-radius: 50% !important;
-    flex-shrink: 0 !important;
-    box-sizing: content-box !important;
-  }
-  #timeline-grid > div > div:nth-child(2)::after {
-    height: 2px !important;
-    width: calc(100vw - 80px) !important;
-    flex: 1 !important;
-  }
+  
 
   /* ── 햄버거 메뉴 — 상담예약 버튼 강제 표시 ── */
   .site-nav.mobile-open {
@@ -1805,6 +1791,62 @@ p {
     top: 1rem !important;
     right: 1rem !important;
     z-index: 10000 !important;
+  }
+}
+</style>
+<style>
+@media (max-width: 768px) {
+
+  /* 타임라인 각 아이템 — 세로 쌓기 */
+  #timeline-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+  }
+  #timeline-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* 레이블 (한국/미국/현재) */
+  #timeline-grid > div > div:nth-child(1) {
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* 골드 동그라미 + 오른쪽 가로선 */
+  #timeline-grid > div > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-bottom: 0.8rem !important;
+    /* 동그라미 자체 크기 고정 */
+    flex-shrink: 0 !important;
+  }
+  /* 동그라미 자체는 flex item이므로 크기 고정 */
+  #timeline-grid > div > div:nth-child(2) {
+    box-sizing: content-box !important;
+  }
+  /* 오른쪽 가로선 — ::after로 추가 */
+  #timeline-grid > div > div:nth-child(2)::after {
+    content: '' !important;
+    display: block !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background: rgba(201,168,76,0.4) !important;
+    margin-left: 8px !important;
+  }
+
+  /* 타이틀 */
+  #timeline-grid > div > div:nth-child(3) {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  /* 설명 */
+  #timeline-grid > div > div:nth-child(4) {
+    font-size: 0.82rem !important;
+    line-height: 1.65 !important;
   }
 }
 </style>
