@@ -1696,6 +1696,29 @@ p {
   .tl-desk-dot { display: none !important; }
 }
 </style>
+<style>
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero__photo-placeholder { display: none !important; }
+  .hero__content {
+    width: 100% !important;
+    padding: 8rem 3rem 5rem !important;
+    max-width: 700px;
+  }
+}
+</style>
+<style>
+/* 영문일 때 히어로 텍스트 영역 확장 */
+body.lang-en .hero__content {
+  width: 62% !important;
+}
+body.lang-en .hero__photo-placeholder {
+  width: 33% !important;
+}
+@media (max-width: 1200px) {
+  body.lang-en .hero__photo-placeholder { display: none !important; }
+  body.lang-en .hero__content { width: 100% !important; }
+}
+</style>
 </head>
 <body>
 
@@ -1754,7 +1777,7 @@ p {
     </p>
 
     <div class="hero__badges">
-      <span style="font-size:0.88rem; font-weight:500; color:rgba(201,168,76,0.85); letter-spacing:0.02em; word-break:keep-all;" data-i18n="hero-badges">한국 변호사 &nbsp;·&nbsp; 캘리포니아 주 변호사 &nbsp;·&nbsp; 미국 로펌 Estate Planning 전담 &nbsp;·&nbsp; 무료 초기 상담
+      <span style="font-size:0.88rem; font-weight:500; color:rgba(201,168,76,0.85); letter-spacing:0.02em; word-break:keep-all;" data-i18n="hero-badges">캘리포니아 주 변호사 &nbsp;·&nbsp; 한국 변호사 &nbsp;·&nbsp; 미국 로펌 Estate Planning 전담 &nbsp;·&nbsp; 무료 초기 상담
       </span>
     </div>
 
@@ -1773,16 +1796,7 @@ p {
          alt="Document signing" />
   </div>
 
-  <div class="hero__scroll-hint" style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;">
-    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-      <rect x="0.5" y="0.5" width="15" height="19" rx="7.5" stroke="currentColor" stroke-opacity="0.5"/>
-      <circle cx="8" cy="6" r="2" fill="currentColor" opacity="0.5">
-        <animate attributeName="cy" from="6" to="13" dur="1.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" from="0.5" to="0" dur="1.5s" repeatCount="indefinite"/>
-      </circle>
-    </svg>
-    <span data-en="Scroll" data-ko="스크롤">스크롤</span>
-  </div>
+
 </section>
 
 
@@ -2068,7 +2082,7 @@ p {
       'hero-desc': '미국에서 쌓은 소중한 것들을 지키는 여정, 누구와 함께 가는지가 핵심입니다.',
       'hero-btn1': '무료 상담 예약하기',
       'hero-btn2': 'Estate Planning',
-      'hero-badges': '한국 변호사 &nbsp;·&nbsp; 캘리포니아 주 변호사 &nbsp;·&nbsp; 미국 로펌 Estate Planning 전담 &nbsp;·&nbsp; 무료 초기 상담',
+      'hero-badges': '캘리포니아 주 변호사 &nbsp;·&nbsp; 한국 변호사 &nbsp;·&nbsp; 미국 로펌 Estate Planning 전담 &nbsp;·&nbsp; 무료 초기 상담',
       'trust1': '한국·캘리포니아<br>이중 자격',
       'trust2': '20년 이상 법률 경력',
       'trust3': 'Estate Planning 전문',
@@ -2132,11 +2146,11 @@ p {
       'hero-line2': 'you leave for those <span class="gold">you love.</span>',
       'hero-desc': "Protecting what you've built in America — who walks that journey with you makes all the difference.",
       'hero-btn1': 'Book a Free Consultation',
-      'hero-badges': 'Licensed in Korea &nbsp;·&nbsp; California State Bar &nbsp;·&nbsp; Estate Planning Specialist &nbsp;·&nbsp; Free Initial Consultation',
+      'hero-badges': 'California State Bar &nbsp;·&nbsp; Licensed in Korea &nbsp;·&nbsp; Estate Planning Attorney &nbsp;·&nbsp; Free Initial Consultation',
       'hero-btn2': 'Estate Planning',
-      'trust1': 'Licensed in Korea & California',
+      'trust1': 'Licensed in California & Korea',
       'trust2': '20+ Years Legal Career',
-      'trust3': 'Estate Planning Specialist',
+      'trust3': 'Estate Planning Attorney',
       'trust4': 'Korean · English Service',
       'about-overline': 'About the Attorney',
       'ep-title': 'Estate Plans That Protect Your Family',
@@ -2202,6 +2216,8 @@ p {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
     try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
+    document.body.classList.remove('lang-ko', 'lang-en');
+    document.body.classList.add('lang-' + lang);
   }
 
   document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
