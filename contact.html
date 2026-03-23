@@ -2142,25 +2142,22 @@ document.addEventListener('DOMContentLoaded', function() {
   })();
 </script>
 
+
 <script>
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   function applyContactLang(lang) {
-    // lang-ko / lang-en 토글
     document.querySelectorAll('.lang-ko').forEach(function(el) {
       el.style.display = lang === 'ko' ? '' : 'none';
     });
     document.querySelectorAll('.lang-en').forEach(function(el) {
       el.style.display = lang === 'en' ? '' : 'none';
     });
-    // placeholder 교체
     document.querySelectorAll('[data-ph-ko]').forEach(function(el) {
       el.placeholder = lang === 'ko' ? el.getAttribute('data-ph-ko') : el.getAttribute('data-ph-en');
     });
-    // select option 텍스트 교체
     document.querySelectorAll('[data-ko]').forEach(function(el) {
       if (el.tagName === 'OPTION') el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
     });
-    // KO/EN 버튼 active
     document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
@@ -2173,11 +2170,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // 초기 언어 적용
   var saved = 'ko';
   try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
   applyContactLang(saved);
-})();
+});
 </script>
 </body>
 </html>
