@@ -1735,6 +1735,83 @@ p {
     }
   }
   </style>
+<style>
+@media (max-width: 768px) {
+
+  /* ── 타임라인 동그라미 찌그러짐 방지 ── */
+  #timeline-grid > div > div:nth-child(2) {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    box-sizing: content-box !important;
+  }
+  #timeline-grid > div > div:nth-child(2)::after {
+    height: 2px !important;
+    width: calc(100vw - 80px) !important;
+    flex: 1 !important;
+  }
+
+  /* ── 햄버거 메뉴 — 상담예약 버튼 강제 표시 ── */
+  .site-nav.mobile-open {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: var(--navy-900, #0B1F3A) !important;
+    z-index: 9999 !important;
+    padding: 2rem !important;
+  }
+  .site-nav.mobile-open .site-nav__inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    background: none !important;
+  }
+  .site-nav.mobile-open .site-nav__links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    position: static !important;
+    background: none !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+    margin-bottom: 2.5rem;
+  }
+  .site-nav.mobile-open .site-nav__links a {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.15em !important;
+    color: var(--ivory, #FAF8F2) !important;
+  }
+  .site-nav.mobile-open .site-nav__cta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .site-nav.mobile-open .site-nav__cta .btn-primary,
+  .site-nav.mobile-open .site-nav__cta .btn {
+    display: inline-flex !important;
+    width: 200px !important;
+    justify-content: center !important;
+  }
+  .site-nav.mobile-open .site-nav__logo { display: none !important; }
+  .site-nav.mobile-open .nav-hamburger {
+    position: fixed !important;
+    top: 1rem !important;
+    right: 1rem !important;
+    z-index: 10000 !important;
+  }
+}
+</style>
 </head>
 <body>
 <nav class="site-nav">
