@@ -1884,6 +1884,21 @@ p {
   }
 }
 </style>
+<style>
+.lang-ko { display: none !important; }
+.lang-en { display: inline !important; }
+.lang-ko.block, p.lang-ko, h1.lang-ko, div.lang-ko { display: none !important; }
+p.lang-en, h1.lang-en, div.lang-en { display: block !important; }
+body.ko .lang-ko { display: block !important; }
+body.ko p.lang-ko { display: block !important; }
+body.ko h1.lang-ko { display: block !important; }
+body.ko span.lang-ko { display: inline !important; }
+body.ko div.lang-ko { display: block !important; }
+body.ko .lang-en { display: none !important; }
+body.en .lang-ko { display: none !important; }
+body.en .lang-en { display: block !important; }
+body.en span.lang-en { display: inline !important; }
+</style>
 </head>
 <body>
 
@@ -1917,12 +1932,12 @@ p {
 <!-- HERO -->
 <section class="contact-hero">
   <div class="container">
-    <p class="overline lang-ko" style="display:none;">무료 초기 상담</p>
+    <p class="overline lang-ko">무료 초기 상담</p>
     <p class="overline lang-en">Free Initial Consultation</p>
     <span class="gold-rule gold-rule--center"></span>
-    <h1 class="lang-ko" style="display:none;">상담 예약</h1>
+    <h1 class="lang-ko">상담 예약</h1>
     <h1 class="lang-en">Book a Consultation</h1>
-    <p class="lang-ko" style="display:none;">첫 상담은 무료입니다. 편하게 상황을 말씀해 주시면 Sean Jang 변호사가 직접 연락드립니다.</p>
+    <p class="lang-ko">첫 상담은 무료입니다. 편하게 상황을 말씀해 주시면 Sean Jang 변호사가 직접 연락드립니다.</p>
     <p class="lang-en">Your first consultation is complimentary. Share a brief overview of your situation, and Attorney Sean Jang will reach out to you directly.</p>
   </div>
 </section>
@@ -1945,28 +1960,28 @@ p {
 
           <div class="form-row">
             <div class="form-group">
-              <label><span class="lang-ko" style="display:none;">이름</span><span class="lang-en">Full Name</span> <span class="required">*</span></label>
+              <label><span class="lang-ko">이름</span><span class="lang-en">Full Name</span> <span class="required">*</span></label>
               <input type="text" name="name" placeholder="Your full name" data-ph-ko="홍길동" data-ph-en="Your full name" required>
             </div>
             <div class="form-group">
-              <label><span class="lang-ko" style="display:none;">전화번호</span><span class="lang-en">Phone Number</span> <span class="required">*</span></label>
+              <label><span class="lang-ko">전화번호</span><span class="lang-en">Phone Number</span> <span class="required">*</span></label>
               <input type="tel" name="phone" placeholder="+1 (xxx) xxx-xxxx" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label><span class="lang-ko" style="display:none;">이메일</span><span class="lang-en">Email Address</span> <span class="required">*</span></label>
+            <label><span class="lang-ko">이메일</span><span class="lang-en">Email Address</span> <span class="required">*</span></label>
             <input type="email" name="email" placeholder="example@email.com" required>
           </div>
 
           <div class="form-group">
-            <label><span class="lang-ko" style="display:none;">선호 상담 일정</span><span class="lang-en">Preferred Schedule</span></label>
+            <label><span class="lang-ko">선호 상담 일정</span><span class="lang-en">Preferred Schedule</span></label>
             <input type="text" name="preferred_date" placeholder="e.g., Weekday mornings, weekend afternoons, or a specific date" data-ph-ko="예: 평일 오전, 주말 오후, 특정 날짜 등" data-ph-en="e.g., Weekday mornings, weekend afternoons, or a specific date">
-            <div class="form-note lang-ko" style="display:none;">가능하신 일정을 자유롭게 적어주세요. 확정은 연락 후 조율합니다.</div><div class="form-note lang-en">Feel free to suggest your availability. We will confirm a time that works for both parties.</div>
+            <div class="form-note lang-ko">가능하신 일정을 자유롭게 적어주세요. 확정은 연락 후 조율합니다.</div><div class="form-note lang-en">Feel free to suggest your availability. We will confirm a time that works for both parties.</div>
           </div>
 
           <div class="form-group">
-            <label><span class="lang-ko" style="display:none;">상담 방식</span><span class="lang-en">Preferred Contact Method</span></label>
+            <label><span class="lang-ko">상담 방식</span><span class="lang-en">Preferred Contact Method</span></label>
             <select name="meeting_type">
               <option value="" class="lang-ko opt-ko" data-ko="선택해 주세요" data-en="Please select">선택해 주세요</option>
               <option value="전화 상담" class="opt-ko" data-ko="전화 상담" data-en="Phone Consultation">전화 상담</option>
@@ -1976,15 +1991,15 @@ p {
           </div>
 
           <div class="form-group">
-            <label><span class="lang-ko" style="display:none;">상담 요청 사항</span><span class="lang-en">How Can We Help You?</span> <span class="required">*</span></label>
+            <label><span class="lang-ko">상담 요청 사항</span><span class="lang-en">How Can We Help You?</span> <span class="required">*</span></label>
             <textarea name="message" placeholder="Please briefly describe your situation or the nature of your inquiry." data-ph-ko="현재 상황이나 궁금하신 점을 간략히 적어주세요. (예: 신탁 설계 문의, 유언장 작성, 한국 자산 처리 등)" data-ph-en="Please briefly describe your situation or the nature of your inquiry." required></textarea>
           </div>
 
           <div class="form-submit">
-            <button type="submit" class="btn btn-primary"><span class="lang-ko" style="display:none;">상담 예약 신청하기</span><span class="lang-en">Request a Consultation</span></button>
+            <button type="submit" class="btn btn-primary"><span class="lang-ko">상담 예약 신청하기</span><span class="lang-en">Request a Consultation</span></button>
           </div>
           <p class="form-disclaimer">
-<span class="lang-ko" style="display:none;">본 양식을 통해 제출된 정보는 상담 목적으로만 사용됩니다.<br>제출이 변호사-의뢰인 관계를 형성하지 않습니다.</span>
+<span class="lang-ko">본 양식을 통해 제출된 정보는 상담 목적으로만 사용됩니다.<br>제출이 변호사-의뢰인 관계를 형성하지 않습니다.</span>
             <span class="lang-en">Information submitted through this form is used solely for consultation purposes.<br>Submission does not establish an attorney-client relationship.</span>
           </p>
         </form>
@@ -1992,8 +2007,8 @@ p {
         <!-- 제출 완료 메시지 -->
         <div class="form-success" id="form-success">
           <div class="form-success__icon">✅</div>
-          <h3><span class="lang-ko" style="display:none;">신청이 접수되었습니다</span><span class="lang-en">Your request has been received.</span></h3>
-          <p><span class="lang-ko" style="display:none;">빠른 시일 내에 Sean Jang 변호사가 직접 연락드리겠습니다.<br>감사합니다.</span><span class="lang-en">Attorney Sean Jang will be in touch with you shortly.<br>Thank you for reaching out.</span></p>
+          <h3><span class="lang-ko">신청이 접수되었습니다</span><span class="lang-en">Your request has been received.</span></h3>
+          <p><span class="lang-ko">빠른 시일 내에 Sean Jang 변호사가 직접 연락드리겠습니다.<br>감사합니다.</span><span class="lang-en">Attorney Sean Jang will be in touch with you shortly.<br>Thank you for reaching out.</span></p>
         </div>
       </div>
 
@@ -2144,13 +2159,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-  function applyContactLang(lang) {
-    document.querySelectorAll('.lang-ko').forEach(function(el) {
-      el.style.display = lang === 'ko' ? '' : 'none';
-    });
-    document.querySelectorAll('.lang-en').forEach(function(el) {
-      el.style.display = lang === 'en' ? '' : 'none';
+  function setLang(lang) {
+    document.body.className = document.body.className.replace(/\bko\b|\ben\b/g, '').trim();
+    document.body.classList.add(lang);
+    document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
     document.querySelectorAll('[data-ph-ko]').forEach(function(el) {
       el.placeholder = lang === 'ko' ? el.getAttribute('data-ph-ko') : el.getAttribute('data-ph-en');
@@ -2158,21 +2174,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-ko]').forEach(function(el) {
       if (el.tagName === 'OPTION') el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
     });
-    document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
     try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
   }
 
   document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      applyContactLang(btn.getAttribute('data-lang'));
+      setLang(btn.getAttribute('data-lang'));
     });
   });
 
   var saved = 'ko';
   try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
-  applyContactLang(saved);
+  setLang(saved);
 });
 </script>
 </body>
