@@ -1680,6 +1680,22 @@ p {
   }
 }
 </style>
+<style>
+/* 데스크탑 타임라인 원래 동그라미 */
+.tl-desk-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  border: 3px solid var(--ivory);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.2rem;
+}
+@media (max-width: 768px) {
+  .tl-desk-dot { display: none !important; }
+}
+</style>
 </head>
 <body>
 
@@ -1827,7 +1843,7 @@ p {
             <!-- 한국 -->
             <div style="position:relative;">
               <div style="font-size:0.62rem; font-weight:700; color:var(--gold-500); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem; line-height:1.2rem; display:block;" data-i18n="tl-ko">한국</div>
-              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div>
+              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div><div class="tl-desk-dot"></div>
               <div style="font-size:1.05rem; font-weight:700; color:var(--navy-900); margin-bottom:0.5rem; letter-spacing:-0.01em;" data-i18n="tl-t1">사법시험 합격</div>
               <div style="font-size:0.85rem; line-height:1.75; color:var(--text-mid); word-break:keep-all;" data-i18n="tl-d1">로펌 소속변호사, 혹은 Founder로 다양한 법률분야에서 법조인으로서 깊이 있는 실무경험을 취득했습니다.</div>
             </div>
@@ -1835,7 +1851,7 @@ p {
             <!-- 미국 1 -->
             <div style="position:relative;">
               <div style="font-size:0.62rem; font-weight:700; color:var(--gold-500); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem; line-height:1.2rem; display:block;" data-i18n="tl-us1">미국</div>
-              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div>
+              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div><div class="tl-desk-dot"></div>
               <div style="font-size:1.05rem; font-weight:700; color:var(--navy-900); margin-bottom:0.5rem; letter-spacing:-0.01em;" data-i18n="tl-t2">California State Bar 합격</div>
               <div style="font-size:0.85rem; line-height:1.75; color:var(--text-mid); word-break:keep-all;" data-i18n="tl-d2">미국이주 후 6개월 만에 캘리포니아 변호사 시험에 합격하였습니다.</div>
             </div>
@@ -1843,7 +1859,7 @@ p {
             <!-- 미국 2 -->
             <div style="position:relative;">
               <div style="font-size:0.62rem; font-weight:700; color:var(--gold-500); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem; line-height:1.2rem; display:block;" data-i18n="tl-us2">미국</div>
-              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div>
+              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div><div class="tl-desk-dot"></div>
               <div style="font-size:1.05rem; font-weight:700; color:var(--navy-900); margin-bottom:0.5rem; letter-spacing:-0.01em;" data-i18n="tl-t3">Visiting Scholar 참여</div>
               <div style="font-size:0.85rem; line-height:1.75; color:var(--text-mid); word-break:keep-all;" data-i18n="tl-d3">Pepperdine School of Law에서 약 2년간 미국법을 연구하여 전문성을 높였습니다.</div>
             </div>
@@ -1851,7 +1867,7 @@ p {
             <!-- 미국 3 -->
             <div style="position:relative;">
               <div style="font-size:0.62rem; font-weight:700; color:var(--gold-500); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem; line-height:1.2rem; display:block;" data-i18n="tl-us3">미국</div>
-              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div>
+              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div><div class="tl-desk-dot"></div>
               <div style="font-size:1.05rem; font-weight:700; color:var(--navy-900); margin-bottom:0.5rem; letter-spacing:-0.01em;" data-i18n="tl-t4">Estate Planning 전담</div>
               <div style="font-size:0.85rem; line-height:1.75; color:var(--text-mid); word-break:keep-all;" data-i18n="tl-d4">미국 로펌에서 다년간 Estate Planning을 전담해왔습니다.</div>
             </div>
@@ -1859,7 +1875,7 @@ p {
             <!-- 현재 -->
             <div style="position:relative;">
               <div style="font-size:0.62rem; font-weight:700; color:var(--gold-500); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem; line-height:1.2rem; display:block;" data-i18n="tl-now">현재</div>
-              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div>
+              <div class="tl-dot-row"><span class="tl-dot"></span><span class="tl-line"></span></div><div class="tl-desk-dot"></div>
               <div style="font-size:1.05rem; font-weight:700; color:var(--navy-900); margin-bottom:0.5rem; letter-spacing:-0.01em;" data-i18n="tl-t5">Estate Planning (상속설계) 변호사</div>
               <div style="font-size:0.85rem; line-height:1.75; color:var(--text-mid); word-break:keep-all;" data-i18n="tl-d5">한국계·미국계 가정의 Estate Planning을 돕고 있습니다.</div>
             </div>
@@ -1905,7 +1921,7 @@ p {
     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; margin-top:3rem;">
 
       <div style="background:white; padding:2.5rem 2rem; border-top:3px solid var(--gold-500); box-shadow:0 4px 24px rgba(11,31,58,0.06);">
-        <h3 style="font-size:1rem; font-weight:800; color:var(--navy-900); margin-bottom:0.6rem; letter-spacing:-0.02em;">Living Trust</h3>
+        <h3 style="font-size:1rem; font-weight:800; color:var(--navy-900); margin-bottom:0.6rem; letter-spacing:-0.02em;" data-i18n="lt-title">Living Trust <span style="font-weight:400; font-size:0.85rem;">(생전 신탁)</span></h3>
         <p style="font-size:0.87rem; line-height:1.8; color:var(--text-mid); word-break:keep-all;" data-i18n="ep-card-lt">Probate 없이 자산을 수혜자에게 직접 이전합니다. 프라이버시 보호는 물론 한국 자산도 포함 가능합니다.</p>
       </div>
 
@@ -2059,11 +2075,7 @@ p {
       'trust4': '한국어 · 영어 서비스',
       'about-overline': '변호사 소개',
       'ep-title': '가족을 위해 준비하는 Estate Plan',
-      'fi-title': 'Funding Instructions (트러스트 펀딩 지침)',
-      'cot-title': 'Certificate of Trust (트러스트 증명)',
-      'hd-title': 'Healthcare Directive (의료지시서)',
-      'dpa-title': 'Durable Power of Attorney (재정대리권)',
-      'last-will-title': 'Last Will (유언)',
+      'lt-title': 'Living Trust <span style="font-weight:400; font-size:0.85rem;">(생전 신탁)</span>',
       'last-will-title': 'Last Will <span style="font-weight:400; font-size:0.85rem;">(유언)</span>',
       'dpa-title': 'Durable Power of Attorney <span style="font-weight:400; font-size:0.85rem;">(재정대리권)</span>',
       'hd-title': 'Healthcare Directive <span style="font-weight:400; font-size:0.85rem;">(의료지시서)</span>',
@@ -2103,11 +2115,7 @@ p {
       'footer-ep-desc': '캘리포니아 Estate Planning. 한국어·영어 상담 가능합니다.',
       'ep-desc': '모든 Estate Plan은 의뢰인의 가족 구조, 자산, 목표에 맞게 맞춤 설계됩니다.',
       'ep-title': '가족을 위해 준비하는 Estate Plan',
-      'fi-title': 'Funding Instructions (트러스트 펀딩 지침)',
-      'cot-title': 'Certificate of Trust (트러스트 증명)',
-      'hd-title': 'Healthcare Directive (의료지시서)',
-      'dpa-title': 'Durable Power of Attorney (재정대리권)',
-      'last-will-title': 'Last Will (유언)',
+      'lt-title': 'Living Trust <span style="font-weight:400; font-size:0.85rem;">(생전 신탁)</span>',
       'last-will-title': 'Last Will <span style="font-weight:400; font-size:0.85rem;">(유언)</span>',
       'dpa-title': 'Durable Power of Attorney <span style="font-weight:400; font-size:0.85rem;">(재정대리권)</span>',
       'hd-title': 'Healthcare Directive <span style="font-weight:400; font-size:0.85rem;">(의료지시서)</span>',
@@ -2132,6 +2140,7 @@ p {
       'trust4': 'Korean · English Service',
       'about-overline': 'About the Attorney',
       'ep-title': 'Estate Plans That Protect Your Family',
+      'lt-title': 'Living Trust',
       'last-will-title': 'Last Will',
       'dpa-title': 'Durable Power of Attorney',
       'hd-title': 'Healthcare Directive',
@@ -2171,6 +2180,7 @@ p {
       'footer-ep-desc': 'California Estate Planning. Available in Korean and English.',
       'ep-desc': 'Every Estate Plan is tailored to your unique family situation, assets, and goals.',
       'ep-title': 'Estate Plans That Protect Your Family',
+      'lt-title': 'Living Trust',
       'last-will-title': 'Last Will',
       'dpa-title': 'Durable Power of Attorney',
       'hd-title': 'Healthcare Directive',
