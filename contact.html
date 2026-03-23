@@ -1884,21 +1884,9 @@ p {
   }
 }
 </style>
+
 <style>
-/* 기본: KO */
-.lang-en { display: none !important; }
-.lang-ko { display: inline !important; }
-p.lang-ko, h1.lang-ko, div.lang-ko { display: block !important; }
-
-/* KO 명시 */
-body.ko .lang-ko { display: inline !important; }
-body.ko p.lang-ko, body.ko h1.lang-ko, body.ko div.lang-ko { display: block !important; }
-body.ko .lang-en { display: none !important; }
-
-/* EN */
-body.en .lang-en { display: inline !important; }
-body.en p.lang-en, body.en h1.lang-en, body.en div.lang-en { display: block !important; }
-body.en .lang-ko { display: none !important; }
+.lang-en { display: none; }
 </style>
 </head>
 <body class="ko">
@@ -2054,25 +2042,70 @@ body.en .lang-ko { display: none !important; }
   </div>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
+  function applyLang(lang) {
+    // lang-ko 요소
+    var koEls = document.querySelectorAll('.lang-ko');
+    for (var i = 0; i < koEls.length; i++) {
+      koEls[i].style.setProperty('display', lang === 'ko' ? '' : 'none', 'important');
+    }
+    // lang-en 요소
+    var enEls = document.querySelectorAll('.lang-en');
+    for (var i = 0; i < enEls.length; i++) {
+      enEls[i].style.setProperty('display', lang === 'en' ? '' : 'none', 'important');
+    }
+    // placeholder
+    var phEls = document.querySelectorAll('[data-ph-ko]');
+    for (var i = 0; i < phEls.length; i++) {
+      phEls[i].placeholder = lang === 'ko' ? phEls[i].getAttribute('data-ph-ko') : phEls[i].getAttribute('data-ph-en');
+    }
+    // select options
+    var optEls = document.querySelectorAll('option[data-ko]');
+    for (var i = 0; i < optEls.length; i++) {
+      optEls[i].textContent = lang === 'ko' ? optEls[i].getAttribute('data-ko') : optEls[i].getAttribute('data-en');
+    }
+    // 버튼 active
+    var btns = document.querySelectorAll('.lang-toggle__btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', btns[i].getAttribute('data-lang') === lang);
+    }
+    try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
+  }
 
-  // ── 햄버거 메뉴 ──
+  // 버튼 클릭 이벤트
+  var btns = document.querySelectorAll('.lang-toggle__btn');
+  for (var i = 0; i < btns.length; i++) {
+    (function(btn) {
+      btn.addEventListener('click', function() {
+        applyLang(btn.getAttribute('data-lang'));
+      });
+    })(btns[i]);
+  }
+
+  // 초기 실행
+  var saved = 'ko';
+  try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { applyLang(saved); });
+  } else {
+    applyLang(saved);
+  }
+})();
+</script>
+
+<script>
+// 햄버거
+document.addEventListener('DOMContentLoaded', function() {
   var hamburger = document.querySelector('.nav-hamburger');
   var nav = document.querySelector('.site-nav');
   if (hamburger && nav) {
     hamburger.addEventListener('click', function() {
-      var isOpen = nav.classList.toggle('mobile-open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-    });
-    document.querySelectorAll('.site-nav__links a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        nav.classList.remove('mobile-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
+      nav.classList.toggle('mobile-open');
     });
   }
 
-  // ── 폼 제출 ──
+  // 폼
   var form = document.getElementById('contact-form');
   var success = document.getElementById('form-success');
   if (form) {
@@ -2081,48 +2114,16 @@ document.addEventListener('DOMContentLoaded', function() {
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       fetch('https://formspree.io/f/mlgpybal', {
-        method: 'POST',
-        body: new FormData(form),
+        method: 'POST', body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       }).then(function(res) {
-        if (res.ok) {
-          form.style.display = 'none';
-          success.style.display = 'block';
-        } else {
-          btn.disabled = false;
-        }
+        if (res.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+        else { btn.disabled = false; }
       }).catch(function() { btn.disabled = false; });
     });
   }
 
-  // ── 언어 전환 ──
-  function setLang(lang) {
-    document.body.classList.remove('ko', 'en');
-    document.body.classList.add(lang);
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-    document.querySelectorAll('[data-ph-ko]').forEach(function(el) {
-      el.placeholder = lang === 'ko' ? el.getAttribute('data-ph-ko') : el.getAttribute('data-ph-en');
-    });
-    document.querySelectorAll('[data-ko]').forEach(function(el) {
-      if (el.tagName === 'OPTION') {
-        el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
-      }
-    });
-    try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
-  }
-
-  document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      setLang(btn.getAttribute('data-lang'));
-    });
-  });
-
-  var saved = 'ko';
-  try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
-  setLang(saved);
-
-  // ── Top 버튼 ──
+  // Top 버튼
   var btnTop = document.getElementById('btn-top');
   if (btnTop) {
     window.addEventListener('scroll', function() {
@@ -2132,26 +2133,22 @@ document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
 });
 </script>
 
 <style>
-  .btn-top {
-    position: fixed; bottom: 2rem; right: 2rem;
-    width: 44px; height: 44px;
-    background: var(--navy-900, #0B1F3A);
-    border: 1px solid rgba(201,168,76,0.4);
-    color: #C9A84C; font-size: 1.1rem;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; z-index: 999;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.25s, visibility 0.25s;
-  }
-  .btn-top.visible { opacity: 1; visibility: visible; }
-  .btn-top:hover { background: rgba(201,168,76,0.15); }
+.btn-top {
+  position: fixed; bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  background: #0B1F3A; border: 1px solid rgba(201,168,76,0.4);
+  color: #C9A84C; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 999;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.btn-top.visible { opacity: 1; visibility: visible; }
 </style>
-<button class="btn-top" id="btn-top" aria-label="맨 위로">&#8679;</button>
-
+<button class="btn-top" id="btn-top">&#8679;</button>
 </body>
 </html>
