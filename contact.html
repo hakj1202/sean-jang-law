@@ -1242,12 +1242,17 @@ p {
 (function() {
   // 언어 전환
   function applyLang(lang) {
-    var show = lang === 'ko' ? 'ko' : 'en';
-    var hide = lang === 'ko' ? 'en' : 'ko';
-    var showEls = document.querySelectorAll('.' + show);
-    var hideEls = document.querySelectorAll('.' + hide);
-    for (var i = 0; i < showEls.length; i++) showEls[i].removeAttribute('style');
-    for (var i = 0; i < hideEls.length; i++) hideEls[i].style.cssText = 'display:none!important';
+    var BLOCK = ['P','H1','H2','H3','DIV','SECTION','BUTTON'];
+    function showEl(el) {
+      el.style.cssText = (BLOCK.indexOf(el.tagName) >= 0 ? 'display:block!important' : 'display:inline!important');
+    }
+    function hideEl(el) {
+      el.style.cssText = 'display:none!important';
+    }
+    var koEls = document.querySelectorAll('.ko');
+    var enEls = document.querySelectorAll('.en');
+    for (var i = 0; i < koEls.length; i++) lang === 'ko' ? showEl(koEls[i]) : hideEl(koEls[i]);
+    for (var i = 0; i < enEls.length; i++) lang === 'en' ? showEl(enEls[i]) : hideEl(enEls[i]);
     // placeholder
     var phEls = document.querySelectorAll('[data-ph-ko]');
     for (var i = 0; i < phEls.length; i++) {
