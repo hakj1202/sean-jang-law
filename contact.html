@@ -2055,117 +2055,50 @@ body.en .lang-ko { display: none !important; }
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+  // ── 햄버거 메뉴 ──
+  var hamburger = document.querySelector('.nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', function() {
+      var isOpen = nav.classList.toggle('mobile-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.site-nav__links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        nav.classList.remove('mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // ── 폼 제출 ──
   var form = document.getElementById('contact-form');
   var success = document.getElementById('form-success');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '전송 중...';
-    btn.disabled = true;
-
-    fetch('https://formspree.io/f/mlgpybal', {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(res) {
-      if (res.ok) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        btn.textContent = '오류 발생. 다시 시도해 주세요.';
-        btn.disabled = false;
-      }
-    })
-    .catch(function() {
-      btn.textContent = '오류 발생. 다시 시도해 주세요.';
-      btn.disabled = false;
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      fetch('https://formspree.io/f/mlgpybal', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.disabled = false;
+        }
+      }).catch(function() { btn.disabled = false; });
     });
-  });
-});
-</script>
-
-<script>
-  (function() {
-    var hamburger = document.querySelector('.nav-hamburger');
-    var nav = document.querySelector('.site-nav');
-    if (hamburger && nav) {
-      hamburger.addEventListener('click', function() {
-        var isOpen = nav.classList.toggle('mobile-open');
-        hamburger.setAttribute('aria-expanded', isOpen);
-      });
-      document.querySelectorAll('.site-nav__links a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          nav.classList.remove('mobile-open');
-          hamburger.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-  })();
-</script>
-
-<style>
-  .btn-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 44px;
-    height: 44px;
-    background: var(--navy-900, #0B1F3A);
-    border: 1px solid rgba(201,168,76,0.4);
-    color: #C9A84C;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s, visibility 0.25s, background 0.2s;
-    border-radius: 0;
   }
-  .btn-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  .btn-top:hover {
-    background: rgba(201,168,76,0.15);
-  }
-  @media (max-width: 768px) {
-    .btn-top {
-      bottom: 1.2rem;
-      right: 1.2rem;
-      width: 40px;
-      height: 40px;
-    }
-  }
-</style>
 
-<button class="btn-top" id="btn-top" aria-label="맨 위로">&#8679;</button>
-
-<script>
-  (function() {
-    var btn = document.getElementById('btn-top');
-    window.addEventListener('scroll', function() {
-      btn.classList.toggle('visible', window.scrollY > 300);
-    });
-    btn.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
-</script>
-
-
-<script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+  // ── 언어 전환 ──
   function setLang(lang) {
-    document.body.className = document.body.className.replace(/\bko\b|\ben\b/g, '').trim();
-    document.body.classList.add(lang);
+    document.body.className = document.body.className
+      .replace(/ko|en/g, '').trim() + ' ' + lang;
     document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
@@ -2173,7 +2106,9 @@ document.addEventListener('DOMContentLoaded', function() {
       el.placeholder = lang === 'ko' ? el.getAttribute('data-ph-ko') : el.getAttribute('data-ph-en');
     });
     document.querySelectorAll('[data-ko]').forEach(function(el) {
-      if (el.tagName === 'OPTION') el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
+      if (el.tagName === 'OPTION') {
+        el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
+      }
     });
     try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
   }
@@ -2187,7 +2122,37 @@ document.addEventListener('DOMContentLoaded', function() {
   var saved = 'ko';
   try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
   setLang(saved);
+
+  // ── Top 버튼 ──
+  var btnTop = document.getElementById('btn-top');
+  if (btnTop) {
+    window.addEventListener('scroll', function() {
+      btnTop.classList.toggle('visible', window.scrollY > 300);
+    });
+    btnTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
 });
 </script>
+
+<style>
+  .btn-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 44px; height: 44px;
+    background: var(--navy-900, #0B1F3A);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: #C9A84C; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 999;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+  }
+  .btn-top.visible { opacity: 1; visibility: visible; }
+  .btn-top:hover { background: rgba(201,168,76,0.15); }
+</style>
+<button class="btn-top" id="btn-top" aria-label="맨 위로">&#8679;</button>
+
 </body>
 </html>
