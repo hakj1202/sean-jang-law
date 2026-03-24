@@ -1777,5 +1777,44 @@ p {
     });
   })();
 </script>
+
+<script>
+(function() {
+  function applyLang(lang) {
+    // KO/EN 버튼 active
+    document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    // 네비 버튼 텍스트
+    var navBtn = document.getElementById('nav-consult-btn');
+    if (navBtn) navBtn.textContent = lang === 'ko' ? '상담 예약' : 'Get In Touch';
+    try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
+  }
+
+  // 버튼 클릭
+  document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
+
+  // 저장된 언어 적용
+  var saved = 'ko';
+  try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
+  applyLang(saved);
+
+  // 햄버거
+  var hamburger = document.querySelector('.nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', function() {
+      nav.classList.toggle('mobile-open');
+    });
+    document.querySelectorAll('.site-nav__links a').forEach(function(link) {
+      link.addEventListener('click', function() { nav.classList.remove('mobile-open'); });
+    });
+  }
+})();
+</script>
 </body>
 </html>
