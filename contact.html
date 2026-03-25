@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상담 예약 — Law Office of Sean Jang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+/* ============================================================
+   STYLE GUIDE — Estate Planning Law Firm
+   Design: Classic & Trustworthy | Navy / Gold / Ivory
+   ============================================================ */
+
+/* ─── Fonts loaded via <link> in HTML head for reliability ─── */
+
+/* ─── CSS Variables ─── */
+:root {
+  /* Colors */
+  --navy-900: #0B1F3A;
+  --navy-800: #122848;
+  --navy-700: #1A3560;
+  --navy-600: #1E3F73;
+  --navy-100: #E8EDF5;
+  --navy-50:  #F4F6FB;
+
+  --gold-500: #C9A84C;
+  --gold-400: #D4B86A;
+  --gold-300: #E0CC96;
+  --gold-600: #A8893B;
+
+  --ivory:    #FAF8F2;
+  --ivory-dk: #F2EEE3;
+  --white:    #FFFFFF;
+
+  --text-dark:  #1A1A2E;
+  --text-mid:   #4A5568;
+  --text-light: #718096;
+  --text-gold:  var(--gold-500);
+
+  /* Typography */
+  --font-display: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-body:    'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-ui:      'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  7rem;
+  --space-2xl: 10rem;
+
+  /* Borders */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --border-gold: 1px solid var(--gold-500);
+  --border-navy: 1px solid var(--navy-700);
+
+  /* Shadows */
+  --shadow-sm:  0 2px 8px rgba(11, 31, 58, 0.08);
+  --shadow-md:  0 8px 32px rgba(11, 31, 58, 0.12);
+  --shadow-lg:  0 16px 56px rgba(11, 31, 58, 0.18);
+  --shadow-gold: 0 4px 24px rgba(201, 168, 76, 0.18);
+
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Max widths */
+  --max-w:    1200px;
+  --max-w-sm: 760px;
+  --max-w-xs: 540px;
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-dark);
+  background-color: var(--ivory);
+  line-height: 1.75;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+/* ─── Typography Scale ─── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--navy-900);
+  word-break: keep-all;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); font-weight: 700; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 600; letter-spacing: -0.02em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
+h4 { font-size: 1.05rem; font-weight: 700; font-family: var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+h5 { font-size: 0.875rem; font-weight: 700; font-family: var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
+
+p {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  line-height: 1.9;
+  color: var(--text-mid);
+  word-break: keep-all;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.overline {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+
+/* ─── Gold Divider ─── */
+.gold-rule {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-600), var(--gold-300));
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.gold-rule--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: var(--transition);
+}
+.btn:hover::before { opacity: 1; }
+
+.btn-primary {
+  background: var(--gold-500);
+  color: var(--navy-900);
+  box-shadow: var(--shadow-gold);
+}
+.btn-primary:hover {
+  background: var(--gold-400);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(201, 168, 76, 0.6);
+}
+.btn-secondary:hover {
+  border-color: var(--gold-400);
+  color: var(--gold-300);
+}
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--navy-800);
+  border: 1px solid var(--navy-700);
+}
+.btn-outline-navy:hover {
+  background: var(--navy-800);
+  color: var(--ivory);
+}
+
+/* ─── Layout Utilities ─── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container--sm {
+  max-width: var(--max-w-sm);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section--dark {
+  background: var(--navy-900);
+  color: var(--ivory);
+}
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 { color: var(--ivory); }
+.section--dark p   { color: rgba(250, 248, 242, 0.75); }
+
+.section--ivory {
+  background: var(--ivory);
+}
+
+.section--ivory-dk {
+  background: var(--ivory-dk);
+}
+
+.section--navy-lt {
+  background: var(--navy-50);
+}
+
+.text-center { text-align: center; }
+.text-gold   { color: var(--gold-500); }
+.text-navy   { color: var(--navy-800); }
+.text-ivory  { color: var(--ivory); }
+
+/* ─── Navigation ─── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.2rem var(--space-md);
+  background: var(--navy-900);
+  transition: var(--transition);
+}
+
+.site-nav.scrolled {
+  background: var(--navy-900);
+  box-shadow: var(--shadow-md);
+  padding: 0.8rem var(--space-md);
+}
+
+.site-nav__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-nav__logo {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ivory);
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.site-nav__logo span {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-top: 3px;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.site-nav__links a {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: rgba(250, 248, 242, 0.85);
+  transition: var(--transition);
+  position: relative;
+}
+
+.site-nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold-500);
+  transition: var(--transition);
+}
+
+.site-nav__links a:hover,
+.site-nav__links a.active {
+  color: var(--ivory);
+}
+.site-nav__links a:hover::after,
+.site-nav__links a.active::after {
+  width: 100%;
+}
+
+.site-nav__cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language Toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lang-toggle__btn {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.8rem;
+  color: rgba(250, 248, 242, 0.6);
+  cursor: pointer;
+  transition: var(--transition);
+  background: none;
+  border: none;
+}
+
+.lang-toggle__btn.active {
+  background: var(--gold-500);
+  color: var(--navy-900);
+}
+
+.lang-toggle__divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(201, 168, 76, 0.3);
+}
+
+/* Mobile nav */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ivory);
+  transition: var(--transition);
+}
+
+/* ─── Hero ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(201, 168, 76, 0.03) 60px,
+      rgba(201, 168, 76, 0.03) 61px
+    );
+}
+
+.hero__accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(26, 53, 96, 0.6) 100%);
+  pointer-events: none;
+}
+
+.hero__gold-border {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 280px;
+  height: 340px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-sm);
+}
+
+.hero h1 {
+  color: var(--ivory);
+  max-width: 700px;
+  margin-bottom: var(--space-sm);
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-300);
+}
+
+.hero__sub {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(250, 248, 242, 0.7);
+  max-width: 520px;
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.6);
+  animation: bounce 2s ease-in-out infinite;
+}
+.hero__scroll svg { opacity: 0.6; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ─── Section Headers ─── */
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-header--center {
+  text-align: center;
+}
+.section-header--center .gold-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Cards ─── */
+.card {
+  background: var(--white);
+  border: var(--border-gold);
+  border-top: 3px solid var(--gold-500);
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card--navy {
+  background: var(--navy-800);
+  border-color: rgba(201, 168, 76, 0.25);
+  border-top-color: var(--gold-500);
+}
+.card--navy h3, .card--navy h4 { color: var(--ivory); }
+.card--navy p { color: rgba(250, 248, 242, 0.7); }
+
+/* ─── Grid ─── */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+
+/* ─── Process Steps ─── */
+.process-step {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--ivory-dk);
+}
+.process-step:last-child { border-bottom: none; }
+
+.process-step__num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold-300);
+  line-height: 1;
+  min-width: 2.5rem;
+  flex-shrink: 0;
+}
+
+/* ─── FAQ Accordion ─── */
+.faq-item {
+  border-bottom: 1px solid var(--ivory-dk);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: var(--space-sm);
+  transition: var(--transition);
+}
+.faq-item__question:hover { color: var(--gold-600); }
+
+.faq-item__icon {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--gold-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+  color: var(--gold-500);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.faq-item.open .faq-item__icon {
+  background: var(--gold-500);
+  color: var(--navy-900);
+  transform: rotate(45deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.open .faq-item__answer {
+  max-height: 500px;
+}
+
+.faq-item__answer p {
+  padding-bottom: 1.5rem;
+}
+
+/* ─── Form ─── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.form-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--navy-700);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: var(--white);
+  border: 1px solid var(--navy-100);
+  border-bottom: 2px solid var(--navy-200, #cdd5e0);
+  padding: 0.85rem 1rem;
+  transition: var(--transition);
+  outline: none;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  -webkit-appearance: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* ─── Footer ─── */
+.site-footer {
+  background: #07131F;
+  color: rgba(250, 248, 242, 0.6);
+  padding: var(--space-lg) 0 var(--space-md);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  margin-bottom: var(--space-md);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: var(--space-xs);
+}
+
+.site-footer__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--gold-400);
+  margin-bottom: var(--space-sm);
+}
+
+.site-footer__col-title {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: 1rem;
+}
+
+.site-footer ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.site-footer ul a {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: rgba(250, 248, 242, 0.6);
+  transition: var(--transition);
+}
+.site-footer ul a:hover { color: var(--gold-300); }
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: rgba(250, 248, 242, 0.7);
+}
+
+.site-footer__disclaimer {
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: rgba(250, 248, 242, 0.65);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
+/* ─── Stat / Trust Indicators ─── */
+.stat-block {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.stat-block__num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--gold-500);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-block__label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.6);
+}
+
+/* ─── Badges ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2px;
+}
+
+.badge--gold {
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold-500);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.badge--navy {
+  background: var(--navy-100);
+  color: var(--navy-700);
+  border: 1px solid var(--navy-100);
+}
+
+/* ─── Quote / Callout ─── */
+.callout {
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--gold-500);
+  background: var(--ivory-dk);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--navy-800);
+  line-height: 1.7;
+}
+
+/* ─── Animations ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.fade-up:nth-child(1) { transition-delay: 0.1s; }
+.fade-up:nth-child(2) { transition-delay: 0.2s; }
+.fade-up:nth-child(3) { transition-delay: 0.3s; }
+.fade-up:nth-child(4) { transition-delay: 0.4s; }
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  :root {
+    --space-xl:  5rem;
+    --space-2xl: 7rem;
+  }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  :root { --space-xl: 4rem; }
+
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .form-row                  { grid-template-columns: 1fr; }
+  .site-footer__grid         { grid-template-columns: 1fr; gap: var(--space-md); }
+  .site-footer__bottom       { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  .site-nav__links { display: none; }
+  .site-nav__cta .btn { display: none; }
+  .nav-hamburger  { display: flex; }
+
+  /* Mobile nav open */
+  .site-nav.mobile-open .site-nav__links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: var(--navy-900);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 999;
+  }
+  .site-nav.mobile-open .site-nav__links a {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__gold-border { display: none; }
+  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .callout { padding: var(--space-md); }
+}
+
+.fade-up { opacity: 1 !important; transform: none !important; }
+  
+    /* ── Dropdown (CSS only) ── */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown__menu {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 210px;
+      z-index: 9999;
+      transition: opacity 0.15s ease, visibility 0.15s ease;
+      padding-top: 8px;
+    }
+    .nav-dropdown:hover .nav-dropdown__menu {
+      visibility: visible;
+      opacity: 1;
+    }
+    .nav-dropdown__menu-inner {
+      background: #122848;
+      border: 1px solid rgba(201,168,76,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .nav-dropdown__menu a {
+      display: block !important;
+      padding: 0.8rem 1.2rem !important;
+      font-size: 0.88rem !important;
+      font-weight: 500 !important;
+      color: rgba(250,248,242,0.85) !important;
+      border-bottom: 1px solid rgba(201,168,76,0.1) !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      white-space: nowrap;
+    }
+    .nav-dropdown__menu a:last-child { border-bottom: none !important; }
+    .nav-dropdown__menu a:hover {
+      background: rgba(201,168,76,0.12) !important;
+      color: #E0CC96 !important;
+    }
+    .nav-dropdown__menu a::after { display: none !important; }
+    
+    /* ── Legal Footer ── */
+    .site-footer__legal {
+      border-top: 1px solid rgba(250,248,242,0.15);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+    }
+    .site-footer__legal-copyright {
+      font-size: 0.82rem;
+      color: rgba(250,248,242,0.75);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .site-footer__legal-disclaimer {
+      font-size: 0.78rem;
+      line-height: 1.75;
+      color: rgba(250,248,242,0.6);
+      word-break: keep-all;
+    }
+  </style>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* 언어 전환 */
+    .ko { display: none; }
+    .en { display: none; }
+
+    /* 히어로 */
+    .contact-hero {
+      background: var(--navy-900);
+      padding: 8rem 0 4rem;
+      text-align: center;
+    }
+    .contact-hero .overline { color: var(--gold-400); }
+    .contact-hero h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--ivory);
+      letter-spacing: -0.03em;
+      margin: 0.8rem 0 1rem;
+    }
+    .contact-hero p {
+      font-size: 0.95rem;
+      color: rgba(250,248,242,0.65);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* 폼 */
+    .contact-body { background: var(--ivory); padding: 4rem 0 6rem; }
+    .contact-form { background: white; padding: 2.5rem; box-shadow: 0 4px 24px rgba(11,31,58,0.08); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block; font-size: 0.82rem; font-weight: 600;
+      color: var(--navy-900); letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1px solid rgba(11,31,58,0.2);
+      font-size: 0.95rem; color: var(--navy-900);
+      background: white; outline: none;
+      transition: border 0.2s;
+      font-family: var(--font-body);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-500);
+    }
+    .form-group textarea { height: 140px; resize: vertical; }
+    .form-note { font-size: 0.78rem; color: var(--text-mid); margin-top: 0.4rem; }
+    .required { color: var(--gold-500); }
+    .form-submit { margin-top: 2rem; text-align: center; }
+    .form-submit .btn { width: auto; min-width: 260px; padding: 1rem 2.5rem; font-size: 1rem; }
+    .form-disclaimer {
+      font-size: 0.75rem; color: var(--text-mid);
+      margin-top: 1.2rem; line-height: 1.6; text-align: center;
+    }
+    .form-success {
+      display: none; text-align: center; padding: 3rem 2rem;
+    }
+    .form-success__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .form-success h3 {
+      font-size: 1.3rem; color: var(--navy-900);
+      font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .form-success p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; }
+
+    /* 드롭다운 */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .nav-dropdown__menu {
+      visibility: hidden; opacity: 0;
+      position: absolute; top: 100%; left: 0;
+      min-width: 210px; z-index: 9999; padding-top: 8px;
+      transition: opacity 0.15s, visibility 0.15s;
+      pointer-events: none;
+    }
+    .nav-dropdown:hover .nav-dropdown__menu { visibility: visible; opacity: 1; pointer-events: auto; }
+    .nav-dropdown__menu-inner {
+      background: #122848; border: 1px solid rgba(201,168,76,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3); overflow: hidden;
+    }
+    .nav-dropdown__menu a {
+      display: block !important; padding: 0.85rem 1.3rem !important;
+      font-size: 0.88rem !important; font-weight: 500 !important;
+      color: rgba(250,248,242,0.85) !important;
+      border-bottom: 1px solid rgba(201,168,76,0.1) !important;
+      letter-spacing: 0 !important; text-transform: none !important;
+      white-space: nowrap; cursor: pointer !important;
+    }
+    .nav-dropdown__menu a:last-child { border-bottom: none !important; }
+    .nav-dropdown__menu a:hover { background: rgba(201,168,76,0.15) !important; color: #E0CC96 !important; }
+    .nav-dropdown__menu a::after { display: none !important; }
+
+    /* 모바일 */
+    @media (max-width: 768px) {
+      .site-nav { padding: 0.9rem 1rem !important; }
+      .site-nav__inner { padding: 0 !important; width: 100%; }
+      .site-nav__logo span { display: none; }
+      .site-nav__cta .btn-primary { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 1.5rem; }
+      .contact-hero { padding: 5rem 0 3rem; }
+      .site-nav.mobile-open {
+        position: fixed !important; inset: 0 !important;
+        display: flex !important; flex-direction: column !important;
+        justify-content: center !important; align-items: center !important;
+        background: var(--navy-900) !important; z-index: 9999 !important;
+      }
+      .site-nav.mobile-open .site-nav__inner {
+        flex-direction: column !important; align-items: center !important;
+        width: 100% !important; position: static !important; background: none !important;
+      }
+      .site-nav.mobile-open .site-nav__logo { display: none !important; }
+      .site-nav.mobile-open .site-nav__links {
+        display: flex !important; flex-direction: column !important;
+        align-items: center !important; gap: 2rem !important;
+        position: static !important; background: none !important; margin-bottom: 2rem;
+      }
+      .site-nav.mobile-open .site-nav__cta {
+        display: flex !important; flex-direction: column !important;
+        align-items: center !important; gap: 1rem !important;
+      }
+      .site-nav.mobile-open .site-nav__cta .btn-primary { display: inline-flex !important; width: 200px !important; justify-content: center !important; }
+      .site-nav.mobile-open .nav-hamburger { position: fixed !important; top: 1rem !important; right: 1rem !important; z-index: 10000 !important; }
+    }
+
+    /* Top 버튼 */
+    .btn-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px; background: #0B1F3A;
+      border: 1px solid rgba(201,168,76,0.4); color: #C9A84C;
+      font-size: 1.1rem; display: flex; align-items: center;
+      justify-content: center; cursor: pointer; z-index: 999;
+      opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s;
+    }
+    .btn-top.visible { opacity: 1; visibility: visible; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__logo">
+      Law Office of Sean Jang
+      <span>Estate Planning &nbsp;·&nbsp; Korean Law</span>
+    </a>
+        <div class="site-nav__links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="estate-planning.html">Estate Planning</a>
+      <a href="korean-legal-services.html">Korean Legal Services</a>
+    </div>
+    <div class="site-nav__cta">
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-toggle__btn active" data-lang="ko">KO</button>
+        <div class="lang-toggle__divider"></div>
+        <button class="lang-toggle__btn" data-lang="en">EN</button>
+      </div>
+      <a href="contact.html" class="btn btn-primary" id="nav-consult-btn">상담 예약</a>
+      <button class="nav-hamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- 히어로 -->
+<section class="contact-hero">
+  <div class="container">
+    <p class="overline ko">무료 초기 상담</p>
+    <p class="overline en">Free Initial Consultation</p>
+    <span class="gold-rule gold-rule--center"></span>
+    <h1 class="ko">상담 예약</h1>
+    <h1 class="en">Book a Consultation</h1>
+    <p class="ko">첫 상담은 무료입니다. 편하게 상황을 말씀해 주시면 Sean Jang 변호사가 직접 연락드립니다.</p>
+    <p class="en">Your first consultation is complimentary. Share a brief overview of your situation, and Attorney Sean Jang will be in touch with you directly.</p>
+  </div>
+</section>
+
+<!-- 폼 -->
+<section class="contact-body">
+  <div class="container">
+    <div style="max-width:640px; margin:0 auto;">
+      <div class="contact-form" id="contact-form-wrap">
+        <form action="https://formspree.io/f/mlgpybal" method="POST" id="contact-form">
+          <input type="hidden" name="_replyto" value="syjang8175@gmail.com">
+          <input type="hidden" name="_subject" value="[Sean Jang Law] 새 상담 예약 요청">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label><span class="ko">이름</span><span class="en">Full Name</span> <span class="required">*</span></label>
+              <input type="text" name="name" placeholder="홍길동" data-ph-ko="홍길동" data-ph-en="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label><span class="ko">전화번호</span><span class="en">Phone Number</span> <span class="required">*</span></label>
+              <input type="tel" name="phone" placeholder="+1 (xxx) xxx-xxxx" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label><span class="ko">이메일</span><span class="en">Email Address</span> <span class="required">*</span></label>
+            <input type="email" name="email" placeholder="example@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label><span class="ko">선호 상담 일정</span><span class="en">Preferred Schedule</span></label>
+            <input type="text" name="preferred_date"
+              placeholder="예: 평일 오전, 주말 오후"
+              data-ph-ko="예: 평일 오전, 주말 오후, 특정 날짜 등"
+              data-ph-en="e.g., Weekday mornings, weekend afternoons">
+            <div class="form-note ko">가능하신 일정을 자유롭게 적어주세요. 확정은 연락 후 조율합니다.</div>
+            <div class="form-note en">Feel free to suggest your availability. We will confirm a time that works for both parties.</div>
+          </div>
+
+          <div class="form-group">
+            <label><span class="ko">상담 방식</span><span class="en">Preferred Contact Method</span></label>
+            <select name="meeting_type">
+              <option value="" data-ko="선택해 주세요" data-en="Please select">선택해 주세요</option>
+              <option value="전화 상담" data-ko="전화 상담" data-en="Phone Consultation">전화 상담</option>
+              <option value="이메일 상담" data-ko="이메일 상담" data-en="Email Consultation">이메일 상담</option>
+              <option value="카카오톡 상담" data-ko="카카오톡 상담" data-en="KakaoTalk Consultation">카카오톡 상담</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label><span class="ko">상담 요청 사항</span><span class="en">How Can We Help You?</span> <span class="required">*</span></label>
+            <textarea name="message"
+              placeholder="현재 상황이나 궁금하신 점을 간략히 적어주세요."
+              data-ph-ko="현재 상황이나 궁금하신 점을 간략히 적어주세요. (예: 신탁 설계 문의, 유언장 작성, 한국 자산 처리 등)"
+              data-ph-en="Please briefly describe your situation or the nature of your inquiry."
+              required></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">
+              <span class="ko">상담 예약 신청하기</span>
+              <span class="en">Request a Consultation</span>
+            </button>
+          </div>
+          <p class="form-disclaimer">
+            <span class="ko">본 양식을 통해 제출된 정보는 상담 목적으로만 사용됩니다.<br>제출이 변호사-의뢰인 관계를 형성하지 않습니다.</span>
+            <span class="en">Information submitted through this form is used solely for consultation purposes.<br>Submission does not establish an attorney-client relationship.</span>
+          </p>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <div class="form-success__icon">✅</div>
+          <h3><span class="ko">신청이 접수되었습니다</span><span class="en">Your request has been received.</span></h3>
+          <p><span class="ko">빠른 시일 내에 Sean Jang 변호사가 직접 연락드리겠습니다.<br>감사합니다.</span><span class="en">Attorney Sean Jang will be in touch with you shortly.<br>Thank you for reaching out.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <div class="site-footer__brand">Law Office of Sean Jang</div>
+        <div class="site-footer__tagline">Estate Planning · Korean Law</div>
+        <p style="font-size:0.85rem; line-height:1.7; margin-top:0.75rem; color:rgba(250,248,242,0.75);"><span data-i18n="footer-ep-desc">캘리포니아 Estate Planning. 한국어·영어 상담 가능합니다.</span></p>
+      </div>
+      <div>
+        <div class="site-footer__col-title" data-i18n="footer-menu">메뉴</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="estate-planning.html">Estate Planning</a></li>
+          <li><a href="korean-legal-services.html">Korean Legal Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="site-footer__col-title" data-i18n="footer-contact">연락처</div>
+        <ul>
+          <li><a href="tel:+13104089554">+1 (310) 408-9554</a></li>
+          <li><a href="mailto:syjang8175@gmail.com">syjang8175@gmail.com</a></li>
+          <li><a href="#">San Diego, CA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <div class="site-footer__legal-copyright">
+        © Copyright 2026 - Law Offices of Sean Jang &nbsp;|&nbsp; Privacy Policy
+      </div>
+      <div class="site-footer__legal-disclaimer">
+        The information you obtain at this site is solely for general informational purposes only and is not, nor is it intended to be, legal advice or a guarantee, warranty, or prediction as to the outcome of any particular legal matter. You should consult an attorney for advice regarding your individual situation. We invite you to contact us and welcome your calls, letters and electronic mail. Contacting us does not create an attorney-client relationship. Please do not send any confidential information to us until such time as an attorney-client relationship has been established.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="btn-top" id="btn-top">&#8679;</button>
+
+<script>
+(function() {
+  // 언어 전환
+  function applyLang(lang) {
+    var BLOCK = ['P','H1','H2','H3','DIV','SECTION','BUTTON'];
+    function showEl(el) {
+      el.style.cssText = (BLOCK.indexOf(el.tagName) >= 0 ? 'display:block!important' : 'display:inline!important');
+    }
+    function hideEl(el) {
+      el.style.cssText = 'display:none!important';
+    }
+    var koEls = document.querySelectorAll('.ko');
+    var enEls = document.querySelectorAll('.en');
+    for (var i = 0; i < koEls.length; i++) lang === 'ko' ? showEl(koEls[i]) : hideEl(koEls[i]);
+    for (var i = 0; i < enEls.length; i++) lang === 'en' ? showEl(enEls[i]) : hideEl(enEls[i]);
+    // 네비 버튼 텍스트
+    var navBtn = document.getElementById('nav-consult-btn');
+    if (navBtn) navBtn.textContent = lang === 'ko' ? '상담 예약' : 'Get In Touch';
+    var phEls = document.querySelectorAll('[data-ph-ko]');
+    for (var i = 0; i < phEls.length; i++) {
+      phEls[i].placeholder = lang === 'ko' ? phEls[i].getAttribute('data-ph-ko') : phEls[i].getAttribute('data-ph-en');
+    }
+    // select options
+    var opts = document.querySelectorAll('option[data-ko]');
+    for (var i = 0; i < opts.length; i++) {
+      opts[i].textContent = lang === 'ko' ? opts[i].getAttribute('data-ko') : opts[i].getAttribute('data-en');
+    }
+    // 버튼 active
+    var btns = document.querySelectorAll('.lang-toggle__btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', btns[i].getAttribute('data-lang') === lang);
+    }
+    try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
+  }
+
+  // 초기 실행 — DOM 준비 여부 무관하게
+  function init() {
+    var saved = 'ko';
+    try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
+    applyLang(saved);
+
+    var btns = document.querySelectorAll('.lang-toggle__btn');
+    for (var i = 0; i < btns.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function() {
+          applyLang(btn.getAttribute('data-lang'));
+        });
+      })(btns[i]);
+    }
+
+    // 햄버거
+    var hamburger = document.querySelector('.nav-hamburger');
+    var nav = document.querySelector('.site-nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() { nav.classList.toggle('mobile-open'); });
+    }
+
+    // 폼
+    var form = document.getElementById('contact-form');
+    var success = document.getElementById('form-success');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        fetch('https://formspree.io/f/mlgpybal', {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(res) {
+          if (res.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+          else { btn.disabled = false; }
+        }).catch(function() { btn.disabled = false; });
+      });
+    }
+
+    // Top 버튼
+    var btnTop = document.getElementById('btn-top');
+    if (btnTop) {
+      window.addEventListener('scroll', function() {
+        btnTop.classList.toggle('visible', window.scrollY > 300);
+      });
+      btnTop.addEventListener('click', function() { window.scrollTo({top:0, behavior:'smooth'}); });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

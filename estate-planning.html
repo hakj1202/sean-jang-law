@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Estate Planning — Law Office of Sean Jang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+/* ============================================================
+   STYLE GUIDE — Estate Planning Law Firm
+   Design: Classic & Trustworthy | Navy / Gold / Ivory
+   ============================================================ */
+
+/* ─── Fonts loaded via <link> in HTML head for reliability ─── */
+
+/* ─── CSS Variables ─── */
+:root {
+  /* Colors */
+  --navy-900: #0B1F3A;
+  --navy-800: #122848;
+  --navy-700: #1A3560;
+  --navy-600: #1E3F73;
+  --navy-100: #E8EDF5;
+  --navy-50:  #F4F6FB;
+
+  --gold-500: #C9A84C;
+  --gold-400: #D4B86A;
+  --gold-300: #E0CC96;
+  --gold-600: #A8893B;
+
+  --ivory:    #FAF8F2;
+  --ivory-dk: #F2EEE3;
+  --white:    #FFFFFF;
+
+  --text-dark:  #1A1A2E;
+  --text-mid:   #4A5568;
+  --text-light: #718096;
+  --text-gold:  var(--gold-500);
+
+  /* Typography */
+  --font-display: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-body:    'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-ui:      'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  7rem;
+  --space-2xl: 10rem;
+
+  /* Borders */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --border-gold: 1px solid var(--gold-500);
+  --border-navy: 1px solid var(--navy-700);
+
+  /* Shadows */
+  --shadow-sm:  0 2px 8px rgba(11, 31, 58, 0.08);
+  --shadow-md:  0 8px 32px rgba(11, 31, 58, 0.12);
+  --shadow-lg:  0 16px 56px rgba(11, 31, 58, 0.18);
+  --shadow-gold: 0 4px 24px rgba(201, 168, 76, 0.18);
+
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Max widths */
+  --max-w:    1200px;
+  --max-w-sm: 760px;
+  --max-w-xs: 540px;
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-dark);
+  background-color: var(--ivory);
+  line-height: 1.75;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+/* ─── Typography Scale ─── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--navy-900);
+  word-break: keep-all;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); font-weight: 700; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 600; letter-spacing: -0.02em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
+h4 { font-size: 1.05rem; font-weight: 700; font-family: var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+h5 { font-size: 0.875rem; font-weight: 700; font-family: var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
+
+p {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  line-height: 1.9;
+  color: var(--text-mid);
+  word-break: keep-all;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.overline {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+
+/* ─── Gold Divider ─── */
+.gold-rule {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-600), var(--gold-300));
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.gold-rule--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: var(--transition);
+}
+.btn:hover::before { opacity: 1; }
+
+.btn-primary {
+  background: var(--gold-500);
+  color: var(--navy-900);
+  box-shadow: var(--shadow-gold);
+}
+.btn-primary:hover {
+  background: var(--gold-400);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(201, 168, 76, 0.6);
+}
+.btn-secondary:hover {
+  border-color: var(--gold-400);
+  color: var(--gold-300);
+}
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--navy-800);
+  border: 1px solid var(--navy-700);
+}
+.btn-outline-navy:hover {
+  background: var(--navy-800);
+  color: var(--ivory);
+}
+
+/* ─── Layout Utilities ─── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container--sm {
+  max-width: var(--max-w-sm);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section--dark {
+  background: var(--navy-900);
+  color: var(--ivory);
+}
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 { color: var(--ivory); }
+.section--dark p   { color: rgba(250, 248, 242, 0.75); }
+
+.section--ivory {
+  background: var(--ivory);
+}
+
+.section--ivory-dk {
+  background: var(--ivory-dk);
+}
+
+.section--navy-lt {
+  background: var(--navy-50);
+}
+
+.text-center { text-align: center; }
+.text-gold   { color: var(--gold-500); }
+.text-navy   { color: var(--navy-800); }
+.text-ivory  { color: var(--ivory); }
+
+/* ─── Navigation ─── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.2rem var(--space-md);
+  background: var(--navy-900);
+  transition: var(--transition);
+}
+
+.site-nav.scrolled {
+  background: var(--navy-900);
+  box-shadow: var(--shadow-md);
+  padding: 0.8rem var(--space-md);
+}
+
+.site-nav__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-nav__logo {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ivory);
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.site-nav__logo span {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-top: 3px;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.site-nav__links a {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: rgba(250, 248, 242, 0.85);
+  transition: var(--transition);
+  position: relative;
+}
+
+.site-nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold-500);
+  transition: var(--transition);
+}
+
+.site-nav__links a:hover,
+.site-nav__links a.active {
+  color: var(--ivory);
+}
+.site-nav__links a:hover::after,
+.site-nav__links a.active::after {
+  width: 100%;
+}
+
+.site-nav__cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language Toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lang-toggle__btn {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.8rem;
+  color: rgba(250, 248, 242, 0.6);
+  cursor: pointer;
+  transition: var(--transition);
+  background: none;
+  border: none;
+}
+
+.lang-toggle__btn.active {
+  background: var(--gold-500);
+  color: var(--navy-900);
+}
+
+.lang-toggle__divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(201, 168, 76, 0.3);
+}
+
+/* Mobile nav */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ivory);
+  transition: var(--transition);
+}
+
+/* ─── Hero ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(201, 168, 76, 0.03) 60px,
+      rgba(201, 168, 76, 0.03) 61px
+    );
+}
+
+.hero__accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(26, 53, 96, 0.6) 100%);
+  pointer-events: none;
+}
+
+.hero__gold-border {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 280px;
+  height: 340px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-sm);
+}
+
+.hero h1 {
+  color: var(--ivory);
+  max-width: 700px;
+  margin-bottom: var(--space-sm);
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-300);
+}
+
+.hero__sub {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(250, 248, 242, 0.7);
+  max-width: 520px;
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.6);
+  animation: bounce 2s ease-in-out infinite;
+}
+.hero__scroll svg { opacity: 0.6; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ─── Section Headers ─── */
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-header--center {
+  text-align: center;
+}
+.section-header--center .gold-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Cards ─── */
+.card {
+  background: var(--white);
+  border: var(--border-gold);
+  border-top: 3px solid var(--gold-500);
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card--navy {
+  background: var(--navy-800);
+  border-color: rgba(201, 168, 76, 0.25);
+  border-top-color: var(--gold-500);
+}
+.card--navy h3, .card--navy h4 { color: var(--ivory); }
+.card--navy p { color: rgba(250, 248, 242, 0.7); }
+
+/* ─── Grid ─── */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+
+/* ─── Process Steps ─── */
+.process-step {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--ivory-dk);
+}
+.process-step:last-child { border-bottom: none; }
+
+.process-step__num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold-300);
+  line-height: 1;
+  min-width: 2.5rem;
+  flex-shrink: 0;
+}
+
+/* ─── FAQ Accordion ─── */
+.faq-item {
+  border-bottom: 1px solid var(--ivory-dk);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: var(--space-sm);
+  transition: var(--transition);
+}
+.faq-item__question:hover { color: var(--gold-600); }
+
+.faq-item__icon {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--gold-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+  color: var(--gold-500);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.faq-item.open .faq-item__icon {
+  background: var(--gold-500);
+  color: var(--navy-900);
+  transform: rotate(45deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.open .faq-item__answer {
+  max-height: 500px;
+}
+
+.faq-item__answer p {
+  padding-bottom: 1.5rem;
+}
+
+/* ─── Form ─── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.form-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--navy-700);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: var(--white);
+  border: 1px solid var(--navy-100);
+  border-bottom: 2px solid var(--navy-200, #cdd5e0);
+  padding: 0.85rem 1rem;
+  transition: var(--transition);
+  outline: none;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  -webkit-appearance: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* ─── Footer ─── */
+.site-footer {
+  background: #07131F;
+  color: rgba(250, 248, 242, 0.6);
+  padding: var(--space-lg) 0 var(--space-md);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  margin-bottom: var(--space-md);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: var(--space-xs);
+}
+
+.site-footer__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--gold-400);
+  margin-bottom: var(--space-sm);
+}
+
+.site-footer__col-title {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: 1rem;
+}
+
+.site-footer ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.site-footer ul a {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: rgba(250, 248, 242, 0.6);
+  transition: var(--transition);
+}
+.site-footer ul a:hover { color: var(--gold-300); }
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: rgba(250, 248, 242, 0.7);
+}
+
+.site-footer__disclaimer {
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: rgba(250, 248, 242, 0.65);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
+/* ─── Stat / Trust Indicators ─── */
+.stat-block {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.stat-block__num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--gold-500);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-block__label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.6);
+}
+
+/* ─── Badges ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2px;
+}
+
+.badge--gold {
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold-500);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.badge--navy {
+  background: var(--navy-100);
+  color: var(--navy-700);
+  border: 1px solid var(--navy-100);
+}
+
+/* ─── Quote / Callout ─── */
+.callout {
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--gold-500);
+  background: var(--ivory-dk);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--navy-800);
+  line-height: 1.7;
+}
+
+/* ─── Animations ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.fade-up:nth-child(1) { transition-delay: 0.1s; }
+.fade-up:nth-child(2) { transition-delay: 0.2s; }
+.fade-up:nth-child(3) { transition-delay: 0.3s; }
+.fade-up:nth-child(4) { transition-delay: 0.4s; }
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  :root {
+    --space-xl:  5rem;
+    --space-2xl: 7rem;
+  }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  :root { --space-xl: 4rem; }
+
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .form-row                  { grid-template-columns: 1fr; }
+  .site-footer__grid         { grid-template-columns: 1fr; gap: var(--space-md); }
+  .site-footer__bottom       { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  .site-nav__links { display: none; }
+  .site-nav__cta .btn { display: none; }
+  .nav-hamburger  { display: flex; }
+
+  /* Mobile nav open */
+  .site-nav.mobile-open .site-nav__links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: var(--navy-900);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 999;
+  }
+  .site-nav.mobile-open .site-nav__links a {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__gold-border { display: none; }
+  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .callout { padding: var(--space-md); }
+}
+
+.fade-up { opacity: 1 !important; transform: none !important; }
+  
+    /* ── Dropdown (CSS only) ── */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown__menu {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 210px;
+      z-index: 9999;
+      transition: opacity 0.15s ease, visibility 0.15s ease;
+      padding-top: 8px;
+    }
+    .nav-dropdown:hover .nav-dropdown__menu {
+      visibility: visible;
+      opacity: 1;
+    }
+    .nav-dropdown__menu-inner {
+      background: #122848;
+      border: 1px solid rgba(201,168,76,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .nav-dropdown__menu a {
+      display: block !important;
+      padding: 0.8rem 1.2rem !important;
+      font-size: 0.88rem !important;
+      font-weight: 500 !important;
+      color: rgba(250,248,242,0.85) !important;
+      border-bottom: 1px solid rgba(201,168,76,0.1) !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      white-space: nowrap;
+    }
+    .nav-dropdown__menu a:last-child { border-bottom: none !important; }
+    .nav-dropdown__menu a:hover {
+      background: rgba(201,168,76,0.12) !important;
+      color: #E0CC96 !important;
+    }
+    .nav-dropdown__menu a::after { display: none !important; }
+    
+    /* ── Legal Footer ── */
+    .site-footer__legal {
+      border-top: 1px solid rgba(250,248,242,0.15);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+    }
+    .site-footer__legal-copyright {
+      font-size: 0.82rem;
+      color: rgba(250,248,242,0.75);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .site-footer__legal-disclaimer {
+      font-size: 0.78rem;
+      line-height: 1.75;
+      color: rgba(250,248,242,0.6);
+      word-break: keep-all;
+    }
+  </style>
+  <style>
+    /* ── Dropdown ── */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .nav-dropdown__menu {
+      visibility: hidden; opacity: 0;
+      position: absolute; top: 100%; left: 0;
+      min-width: 210px; z-index: 9999;
+      padding-top: 8px;
+      transition: opacity 0.15s, visibility 0.15s;
+      pointer-events: none;
+    }
+    .nav-dropdown:hover .nav-dropdown__menu {
+      visibility: visible; opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-dropdown__menu-inner {
+      background: #122848;
+      border: 1px solid rgba(201,168,76,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .nav-dropdown__menu a {
+      display: block !important; padding: 0.85rem 1.3rem !important;
+      font-size: 0.88rem !important; font-weight: 500 !important;
+      color: rgba(250,248,242,0.85) !important;
+      border-bottom: 1px solid rgba(201,168,76,0.1) !important;
+      letter-spacing: 0 !important; text-transform: none !important;
+      white-space: nowrap; cursor: pointer !important;
+      pointer-events: auto !important;
+    }
+    .nav-dropdown__menu a:last-child { border-bottom: none !important; }
+    .nav-dropdown__menu a:hover { background: rgba(201,168,76,0.15) !important; color: #E0CC96 !important; }
+    .nav-dropdown__menu a::after { display: none !important; }
+
+    html { scroll-behavior: smooth; }
+    .why-section { scroll-margin-top: 100px; }
+
+    /* ── 히어로 ── */
+    .why-hero {
+      background: var(--navy-900);
+      padding: 8rem 0 4.5rem;
+      text-align: center;
+    }
+    .why-hero .overline { color: var(--gold-400); }
+    .why-hero h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--ivory);
+      letter-spacing: -0.03em;
+      margin: 0.8rem 0 1rem;
+    }
+    .why-hero p {
+      font-size: 0.95rem;
+      color: rgba(250,248,242,0.6);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    /* ── 레이아웃 ── */
+    .why-body {
+      background: var(--ivory);
+      padding: 4rem 0 6rem;
+    }
+    .why-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    /* ── 왼쪽 사이드바 ── */
+    .why-sidebar {
+      position: sticky;
+      top: 90px;
+      padding: 0 0 2rem;
+      border-right: 1px solid rgba(11,31,58,0.1);
+    }
+    .why-sidebar__label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      padding: 0 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .why-sidebar a {
+      display: block;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      border-left: 3px solid transparent;
+      line-height: 1.5;
+      word-break: keep-all;
+      transition: all 0.2s;
+    }
+    .why-sidebar a:hover,
+    .why-sidebar a.active {
+      color: var(--navy-900);
+      border-left-color: var(--gold-500);
+      background: rgba(201,168,76,0.05);
+      font-weight: 600;
+    }
+
+    /* ── 오른쪽 콘텐츠 ── */
+    .why-content {
+      padding: 0 0 0 3.5rem;
+    }
+
+    .why-section {
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(11,31,58,0.08);
+    }
+    .why-section:first-child { padding-top: 0; }
+    .why-section:last-child { border-bottom: none; }
+
+    .why-section__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .why-section__icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .why-section__title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+    .why-section__title .gold-rule {
+      margin-top: 0.5rem;
+    }
+
+    .why-section p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-mid);
+      word-break: keep-all;
+      margin-bottom: 1rem;
+    }
+    .why-section p:last-child { margin-bottom: 0; }
+
+    .why-highlight {
+      background: rgba(11,31,58,0.04);
+      border-left: 3px solid var(--gold-500);
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+      font-size: 0.92rem;
+      color: var(--navy-900);
+      font-weight: 500;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .why-list {
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .why-list__item {
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+    .why-list__item::before {
+      content: '✦';
+      color: var(--gold-500);
+      font-size: 0.55rem;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    /* ── CTA ── */
+    .why-cta {
+      margin-top: 3rem;
+      padding: 2rem 2.5rem;
+      background: var(--navy-900);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .why-cta__text h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 0.4rem;
+    }
+    .why-cta__text p {
+      font-size: 0.88rem;
+      color: rgba(250,248,242,0.6);
+      word-break: keep-all;
+    }
+
+    @media (max-width: 768px) {
+      .why-layout { grid-template-columns: 1fr; }
+      .why-sidebar { position: static; border-right: none; border-bottom: 1px solid rgba(11,31,58,0.1); padding-bottom: 1rem; margin-bottom: 2rem; }
+      .why-content { padding: 0; }
+    }
+  </style>
+
+  <style>
+  /* ════════════════════════════
+     MOBILE OPTIMIZATION (≤768px)
+  ════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* ── 네비 ── */
+    .site-nav__inner { padding: 0 1.2rem; }
+    .site-nav__logo { font-size: 1rem; }
+    .site-nav__logo span { display: none; }
+    .site-nav__cta .btn-primary { display: none; }
+    .site-nav.mobile-open .btn-primary {
+      display: inline-flex !important;
+      margin-top: 2rem;
+    }
+
+    /* ── 섹션 패딩 ── */
+    .section { padding: 3rem 0; }
+    .container { padding: 0 1.2rem; }
+    .section-header h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+    /* ── 푸터 ── */
+    .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .site-footer__legal-disclaimer { font-size: 0.75rem; }
+    .site-footer { padding: 3rem 0 2rem; }
+  }
+
+  @media (max-width: 390px) {
+    .container { padding: 0 1rem; }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    /* ── Estate Planning 사이드바 레이아웃 ── */
+    .why-layout { grid-template-columns: 1fr !important; }
+    .why-sidebar {
+      position: static !important;
+      border-right: none !important;
+      border-bottom: 1px solid rgba(11,31,58,0.1);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .why-sidebar a { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    .why-content { padding: 0 !important; }
+    .why-section { padding: 2rem 0; }
+    .why-section__title { font-size: 1.1rem; }
+    .why-cta {
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+    .why-cta .btn { width: 100%; text-align: center; }
+
+    /* ── 히어로 ── */
+    .practice-hero { padding: 5rem 0 3rem; }
+    .practice-hero h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  }
+  </style>
+  <style>
+  /* ── 모바일 가로 오버플로우 방지 ── */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  img, video, iframe { max-width: 100%; }
+  @media (max-width: 768px) {
+    .container { width: 100%; max-width: 100%; padding: 0 1.2rem; }
+    .site-nav__inner { max-width: 100%; }
+    section, footer, header { max-width: 100%; overflow-x: hidden; }
+    /* 고정 너비 요소 제한 */
+    [style*="min-width"] { min-width: 0 !important; }
+    /* 그리드 오버플로우 방지 */
+    .site-footer__grid,
+    .why-layout,
+    .practice-layout,
+    .intro-grid,
+    .timeline-track { max-width: 100%; }
+    /* 인라인 스타일 그리드 1열 강제 */
+    div[style*="grid-template-columns:1fr 1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    div[style*="grid-template-columns:1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    /* 긴 텍스트 줄바꿈 */
+    p, h1, h2, h3, h4, li, td, th, span {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    /* white-space: nowrap 오버라이드 */
+    .nav-dropdown__menu a { white-space: normal !important; }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    .site-nav {
+      padding: 0.9rem 1rem !important;
+    }
+    .site-nav__inner {
+      padding: 0 !important;
+      width: 100%;
+    }
+    .site-nav__logo {
+      font-size: 0.95rem;
+    }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    /* 모바일 오픈 메뉴에 상담 예약 버튼 */
+    .site-nav.mobile-open .site-nav__cta {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .site-nav.mobile-open .btn-primary {
+      display: inline-flex !important;
+      width: 200px;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .site-nav.mobile-open .lang-toggle {
+      display: flex !important;
+    }
+    /* 모바일 오픈 시 cta를 links 아래로 배치 */
+    .site-nav.mobile-open .site-nav__inner {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+      background: var(--navy-900, #0B1F3A);
+      z-index: 998;
+    }
+    .site-nav.mobile-open .site-nav__logo {
+      display: none;
+    }
+    .site-nav.mobile-open .nav-hamburger {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.2rem;
+      z-index: 1000;
+    }
+  }
+  </style>
+  <style>
+  @media (max-width: 768px) {
+    .site-nav.mobile-open .site-nav__cta {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .site-nav.mobile-open .site-nav__cta .btn-primary {
+      display: inline-flex !important;
+      width: 200px;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .site-nav.mobile-open .site-nav__cta .btn {
+      display: inline-flex !important;
+    }
+  }
+  </style>
+<style>
+@media (max-width: 768px) {
+
+  /* ── 타임라인 동그라미 찌그러짐 방지 ── */
+  #timeline-grid > div > div:nth-child(2) {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    box-sizing: content-box !important;
+  }
+  #timeline-grid > div > div:nth-child(2)::after {
+    height: 2px !important;
+    width: calc(100vw - 80px) !important;
+    flex: 1 !important;
+  }
+
+  /* ── 햄버거 메뉴 — 상담예약 버튼 강제 표시 ── */
+  .site-nav.mobile-open {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: var(--navy-900, #0B1F3A) !important;
+    z-index: 9999 !important;
+    padding: 2rem !important;
+  }
+  .site-nav.mobile-open .site-nav__inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    background: none !important;
+  }
+  .site-nav.mobile-open .site-nav__links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    position: static !important;
+    background: none !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+    margin-bottom: 2.5rem;
+  }
+  .site-nav.mobile-open .site-nav__links a {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.15em !important;
+    color: var(--ivory, #FAF8F2) !important;
+  }
+  .site-nav.mobile-open .site-nav__cta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .site-nav.mobile-open .site-nav__cta .btn-primary,
+  .site-nav.mobile-open .site-nav__cta .btn {
+    display: inline-flex !important;
+    width: 200px !important;
+    justify-content: center !important;
+  }
+  .site-nav.mobile-open .site-nav__logo { display: none !important; }
+  .site-nav.mobile-open .nav-hamburger {
+    position: fixed !important;
+    top: 1rem !important;
+    right: 1rem !important;
+    z-index: 10000 !important;
+  }
+}
+</style>
+<style>
+@media (max-width: 768px) {
+  .why-sidebar {
+    display: block !important;
+    border-bottom: 1px solid rgba(11,31,58,0.1);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  .why-sidebar a {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.6rem 0 !important;
+    font-size: 0.9rem !important;
+    border-left: none !important;
+    border-bottom: 1px solid rgba(11,31,58,0.06) !important;
+    background: none !important;
+    white-space: normal !important;
+  }
+  .why-sidebar a:last-child { border-bottom: none !important; }
+  .why-sidebar a.active {
+    color: var(--navy-900) !important;
+    font-weight: 700 !important;
+    border-left: none !important;
+  }
+  .why-sidebar a br { display: none; }
+}
+</style>
+<style>
+@media (max-width: 768px) {
+  * {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__logo">
+      Law Office of Sean Jang
+      <span>Estate Planning &nbsp;·&nbsp; Korean Law</span>
+    </a>
+        <div class="site-nav__links">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="estate-planning.html" class="active">Estate Planning</a>
+      <a href="korean-legal-services.html">Korean Legal Services</a>
+    </div>
+    <div class="site-nav__cta">
+      <div class="lang-toggle" role="group">
+        <button class="lang-toggle__btn active" data-lang="ko">KO</button>
+        <div class="lang-toggle__divider"></div>
+        <button class="lang-toggle__btn" data-lang="en">EN</button>
+      </div>
+      <a href="contact.html" class="btn btn-primary" id="nav-consult-btn">상담 예약</a>
+      <button class="nav-hamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- 히어로 -->
+<section class="why-hero">
+  <div class="container">
+    <p class="overline" data-ko="Estate Planning 가이드" data-en="Estate Planning Guide">Estate Planning 가이드</p>
+    <span class="gold-rule gold-rule--center"></span>
+    <h1 data-ko="Why Estate Planning?" data-en="Why Estate Planning?">Why Estate Planning?</h1>
+    <p data-ko="Estate Planning에 대해 자주 묻는 질문들을 정리했습니다. 궁금한 항목을 선택하시면 바로 이동합니다." data-en="Frequently asked questions about Estate Planning. Select a topic to jump directly to that section.">Estate Planning에 대해 자주 묻는 질문들을 정리했습니다.<br>궁금한 항목을 선택하시면 바로 이동합니다.</p>
+  </div>
+</section>
+
+<!-- 본문 -->
+<section class="why-body">
+  <div class="container">
+    <div class="why-layout">
+
+      <!-- 왼쪽 사이드바 -->
+      <aside class="why-sidebar">
+        <div class="why-sidebar__label" data-ko="Estate Planning" data-en="Estate Planning">Estate Planning</div>
+        <a href="#q1" data-ko="Estate Planning이란 무엇인가요?" data-en="What is Estate Planning?">Estate Planning이란 무엇인가요?</a>
+        <a href="#q2" data-ko="왜 해야 하나요?" data-en="Why do I need it?">왜 해야 하나요?</a>
+        <a href="#q3" data-ko="세금 혜택이 있나요?" data-en="Are there tax benefits?">세금 혜택이 있나요?</a>
+        <a href="#q4" data-ko="채권자로부터 재산 보호가 되나요?" data-en="Does it protect against creditors?">채권자로부터 재산 보호가 되나요?</a>
+        <a href="#q5" data-ko="어떤 서비스를 받을 수 있나요?" data-en="What services are included?">어떤 서비스를 받을 수 있나요?</a>
+        <a href="#q6" data-ko="언제 하는 게 좋은가요?" data-en="When is the right time?">언제 하는 게 좋은가요?</a>
+        <a href="#q7" data-ko="비용과 절차는 어떻게 되나요?" data-en="What are the costs and process?">비용과 절차는 어떻게 되나요?</a>
+        <a href="#q8" data-ko="서비스 지역이 어떻게 되나요?" data-en="What areas do you serve?">서비스 지역이 어떻게 되나요?</a>
+      </aside>
+
+      <!-- 오른쪽 콘텐츠 -->
+      <div class="why-content">
+
+        <div class="why-section" id="q1">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="Estate Planning이란 무엇인가요?" data-en="What is Estate Planning?">Estate Planning이란 무엇인가요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="Estate Planning은 사망 또는 질병, 사고 등으로 의사결정을 할 수 없게 되었을 때를 대비하여, 재산의 관리와 이전 방법을 미리 설계하는 과정입니다." data-en="Estate Planning is the process of arranging in advance how your assets will be managed and transferred in the event of death, illness, or incapacity.">Estate Planning은 사망 또는 질병, 사고 등으로 의사결정을 할 수 없게 되었을 때를 대비하여, 재산의 관리와 이전 방법을 미리 설계하는 과정입니다.</p>
+          <p data-ko="주요 목적은 비용과 시간이 많이 드는 미국 법원의 Probate 절차로부터 생존 가족들을 보호하고, 재산을 효율적으로 이전하며, 분쟁을 예방하는 것입니다." data-en="Its primary purpose is to protect surviving family members from the costly and time-consuming Probate process, enable efficient asset transfer, and prevent disputes.">주요 목적은 비용과 시간이 많이 드는 미국 법원의 Probate 절차로부터 생존 가족들을 보호하고, 재산을 효율적으로 이전하며, 분쟁을 예방하는 것입니다.</p>
+        </div>
+
+        <div class="why-section" id="q2">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="왜 해야 하나요?" data-en="Why Do I Need It?">왜 해야 하나요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="Estate Planning이 없는 경우, 사망자의 재산은 유언이 없으면 법정상속(Intestate Succession) 규정에 따라 분배되며, 유언이 있더라도 Probate(법원 감독 하의 상속 절차)를 거쳐야 합니다." data-en="Without Estate Planning, assets pass under Intestate Succession laws if there is no will — and even with a will, the estate must go through Probate, a court-supervised process.">Estate Planning이 없는 경우, 사망자의 재산은 유언이 없으면 법정상속(Intestate Succession) 규정에 따라 분배되며, 유언이 있더라도 Probate(법원 감독 하의 상속 절차)를 거쳐야 합니다.</p>
+          <div class="why-highlight">
+            <span data-ko="Probate 절차는 통상 9개월에서 18개월 이상 소요될 수 있으며, 복잡한 경우 더 길어질 수 있습니다. 캘리포니아에서는 변호사 및 집행자 보수가 법정 기준으로 정해져 있으며, California Probate Code §10810에 따라 재산 규모에 비례하여 산정됩니다. 대략 2M 정도의 집을 상속한다고 해도 현재기준 10만불 가까운 비용이 소요될 수 있으며, 해당 기간 생존 가족들은 재산권 행사를 할 수 없습니다." data-en="Probate typically takes 9 to 18 months or longer. In California, attorney and executor fees are set by statute under California Probate Code §10810, calculated as a percentage of the estate's gross value. For a home valued at approximately $2M, fees can approach $100,000 — and during this period, surviving family members have no access to the estate.">Probate 절차는 통상 9개월에서 18개월 이상 소요될 수 있으며, 복잡한 경우 더 길어질 수 있습니다. 캘리포니아에서는 변호사 및 집행자 보수가 법정 기준으로 정해져 있으며, California Probate Code §10810에 따라 재산 규모에 비례하여 산정됩니다. 대략 2M 정도의 집을 상속한다고 해도 현재기준 10만불 가까운 비용이 소요될 수 있으며, 해당 기간 생존 가족들은 재산권 행사를 할 수 없습니다.</span>
+          </div>
+          <div class="why-list">
+            <div class="why-list__item" data-ko="Probate는 법원 절차이므로 프라이버시 보호가 되지 않습니다." data-en="Probate is a court process — your estate becomes a matter of public record.">Probate는 법원 절차이므로 프라이버시 보호가 되지 않습니다.</div>
+            <div class="why-list__item" data-ko="생존 가족 간 분쟁을 유발하여 불행의 씨앗이 될 수 있습니다." data-en="It can give rise to disputes among surviving family members, with consequences that may endure for generations.">생존 가족 간 분쟁을 유발하여 불행의 씨앗이 될 수 있습니다.</div>
+          </div>
+        </div>
+
+        <div class="why-section" id="q3">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="세금 혜택이 있나요?" data-en="Are There Tax Benefits?">세금 혜택이 있나요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="상황에 따라 상속세 및 증여세를 줄이기 위한 전략을 설계할 수 있습니다. 다만, 대부분의 기본적인 Living Trust는 주된 목적이 세금 절감보다는 절차 간소화(Probate 회피)와 자산 관리의 편의성에 있습니다." data-en="Tax reduction strategies for estate and gift taxes can be incorporated depending on your situation. That said, the primary purpose of a basic Living Trust is streamlining the process — avoiding Probate — rather than tax savings.">상황에 따라 상속세 및 증여세를 줄이기 위한 전략을 설계할 수 있습니다. 다만, 대부분의 기본적인 Living Trust는 주된 목적이 세금 절감보다는 절차 간소화(Probate 회피)와 자산 관리의 편의성에 있습니다.</p>
+          <p data-ko="고액 자산의 경우에는 별도의 세금 절감 구조를 함께 설계할 수 있습니다." data-en="For high-value estates, additional tax minimization structures can be incorporated into the plan.">고액 자산의 경우에는 별도의 세금 절감 구조를 함께 설계할 수 있습니다.</p>
+        </div>
+
+        <div class="why-section" id="q4">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="소송 채권자들로부터 재산 보호가 가능한가요?" data-en="Does It Protect Against Creditors?">소송 채권자들로부터 재산 보호가 가능한가요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="일반적인 Living Trust(Revocable Trust)는 채권자로부터 자산을 보호하는 기능은 제한적입니다. 다만, 필요에 따라 별도의 Trust 구조를 통해 리스크를 줄이는 계획을 수립할 수 있습니다." data-en="A standard Living Trust (Revocable Trust) offers limited protection against creditors. However, alternative trust structures can be designed to reduce risk where needed.">일반적인 Living Trust(Revocable Trust)는 채권자로부터 자산을 보호하는 기능은 제한적입니다. 다만, 필요에 따라 별도의 Trust 구조를 통해 리스크를 줄이는 계획을 수립할 수 있습니다.</p>
+        </div>
+
+        <div class="why-section" id="q5">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="어떤 서비스를 받을 수 있나요?" data-en="What Services Are Included?">어떤 서비스를 받을 수 있나요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="고객 상담을 통해 최적의 Estate Plan을 맞춤 설계합니다. 기본적으로 제공되는 Estate Planning Package에는 다음이 포함됩니다." data-en="We design a fully tailored Estate Plan based on a thorough consultation. The standard Estate Planning Package includes the following:">고객 상담을 통해 최적의 Estate Plan을 맞춤 설계합니다. 기본적으로 제공되는 Estate Planning Package에는 다음이 포함됩니다.</p>
+
+          <div style="margin-top:1.5rem; display:flex; flex-direction:column; gap:1.2rem;">
+
+            <div class="why-list__item" style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div>
+                <div style="font-size:1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.35rem;" data-ko="Living Trust (생전 신탁)" data-en="Living Trust">Living Trust (생전 신탁)</div>
+                <div style="font-size:0.9rem; line-height:1.75; color:var(--text-mid);"><span data-ko="Probate 없이 유산상속을 가능하게 하며, 효율적으로 자산을 관리, 분배할 수 있습니다." data-en="Transfers assets directly to your beneficiaries, bypassing the Probate process entirely.">Probate 없이 유산상속을 가능하게 하며, 효율적으로 자산을 관리, 분배할 수 있습니다.</span></div>
+              </div>
+            </div>
+
+            <div class="why-list__item" style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div>
+                <div style="font-size:1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.35rem;" data-ko="Last Will (유언장)" data-en="Last Will">Last Will (유언장)</div>
+                <div style="font-size:0.9rem; line-height:1.75; color:var(--text-mid);"><span data-ko="자산 분배 의사를 법적으로 명시하고, 미성년 자녀의 후견인을 지정합니다." data-en="Legally states your wishes for asset distribution and designates a guardian for minor children.">자산 분배 의사를 법적으로 명시하고, 미성년 자녀의 후견인을 지정합니다.</span></div>
+              </div>
+            </div>
+
+            <div class="why-list__item" style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div>
+                <div style="font-size:1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.35rem;" data-ko="Durable Power of Attorney (재정대리권)" data-en="Durable Power of Attorney">Durable Power of Attorney (재정대리권)</div>
+                <div style="font-size:0.9rem; line-height:1.75; color:var(--text-mid);"><span data-ko="의사 결정 불가 시 신뢰하는 사람이 재정·법적 업무를 대신 처리할 수 있도록 권한을 부여합니다." data-en="Authorizes a trusted person to manage financial and legal matters on your behalf if you become incapacitated.">의사 결정 불가 시 신뢰하는 사람이 재정·법적 업무를 대신 처리할 수 있도록 권한을 부여합니다.</span></div>
+              </div>
+            </div>
+
+            <div class="why-list__item" style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div>
+                <div style="font-size:1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.35rem;" data-ko="Advanced Healthcare Directive (의료지시서)" data-en="Advanced Healthcare Directive">Advanced Healthcare Directive (의료지시서)</div>
+                <div style="font-size:0.9rem; line-height:1.75; color:var(--text-mid);"><span data-ko="치료와 관련한 의사결정을 내릴 수 없는 상황을 대비하여 의료 결정 대리인을 지정합니다." data-en="Designates a healthcare decision-making agent for situations where you are unable to make medical decisions.">치료와 관련한 의사결정을 내릴 수 없는 상황을 대비하여 의료 결정 대리인을 지정합니다.</span></div>
+              </div>
+            </div>
+
+            <div class="why-list__item" style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div>
+                <div style="font-size:1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.35rem;" data-ko="Certificate of Trust (트러스트 증명)" data-en="Certificate of Trust">Certificate of Trust (트러스트 증명)</div>
+                <div style="font-size:0.9rem; line-height:1.75; color:var(--text-mid);"><span data-ko="신탁의 존재와 수탁자 권한을 증명하는 문서로, 금융기관 및 부동산 거래 시 활용됩니다." data-en="A document certifying the existence of your trust and trustee authority, used in financial and real estate transactions.">신탁의 존재와 수탁자 권한을 증명하는 문서로, 금융기관 및 부동산 거래 시 활용됩니다.</span></div>
+              </div>
+            </div>
+
+            <div class="why-list__item" style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div>
+                <div style="font-size:1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.35rem;" data-ko="Funding Instructions (트러스트 펀딩 지침)" data-en="Funding Instructions">Funding Instructions (트러스트 펀딩 지침)</div>
+                <div style="font-size:0.9rem; line-height:1.75; color:var(--text-mid);"><span data-ko="부동산·계좌 등 자산을 신탁 명의로 이전하는 절차와 방법을 안내합니다." data-en="Guides you through the process of transferring real estate and accounts into the name of your trust.">부동산·계좌 등 자산을 신탁 명의로 이전하는 절차와 방법을 안내합니다.</span></div>
+              </div>
+            </div>
+
+          </div>
+
+          <p style="margin-top:1.5rem;"><span data-ko="※ 또한 Estate Planning을 앞두고 혹은 그 계획의 일환으로 주택을 구입·처분하시는 경우 필요한 법률 자문 및 구입·처분 대행 서비스도 별도 계약을 통해 받으실 수 있습니다." data-en="※ Additionally, if you are purchasing or selling a property as part of or in preparation for your Estate Plan, legal advisory and transaction services are available under a separate agreement.">※ 또한 Estate Planning을 앞두고 혹은 그 계획의 일환으로 주택을 구입·처분하시는 경우 필요한 법률 자문 및 구입·처분 대행 서비스도 별도 계약을 통해 받으실 수 있습니다.</span></p>
+        </div>
+
+        <div class="why-section" id="q6">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="언제 하는 게 좋은가요?" data-en="When Is the Right Time?">언제 하는 게 좋은가요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="가능한 한 빠를수록 좋습니다. 특히 다음과 같은 중요한 인생 이벤트가 있을 때 진지하게 검토할 필요가 있습니다." data-en="The earlier you begin, the better protected your family will be. Estate Planning deserves serious consideration particularly when the following life events occur:">가능한 한 빠를수록 좋습니다. 특히 다음과 같은 중요한 인생 이벤트가 있을 때 진지하게 검토할 필요가 있습니다.</p>
+          <div class="why-list">
+            <div class="why-list__item" data-ko="결혼 또는 이혼" data-en="Marriage or Divorce">결혼 또는 이혼</div>
+            <div class="why-list__item" data-ko="자녀 출생" data-en="Birth of a Child">자녀 출생</div>
+            <div class="why-list__item" data-ko="부동산 취득" data-en="Acquisition of Real Property">부동산 취득</div>
+            <div class="why-list__item" data-ko="사업 시작" data-en="Starting a Business">사업 시작</div>
+          </div>
+          <p data-ko="Estate Planning은 고령이 되어서 하는 것이 아니라, 예기치 않은 상황에 대비하기 위한 사전 준비입니다. Living Trust는 유언장처럼 본인의 뜻에 따라 언제든지 수정·변경이 가능하기 때문에, 굳이 특정 사항이 확정될 때까지 기다릴 필요가 없습니다." data-en="Estate Planning is not something reserved for old age — it is a proactive measure against the unexpected. A Living Trust, like a will, can be amended or revoked at any time, so there is no need to wait until every detail of your life is settled.">Estate Planning은 고령이 되어서 하는 것이 아니라, 예기치 않은 상황에 대비하기 위한 사전 준비입니다. Living Trust는 유언장처럼 본인의 뜻에 따라 언제든지 수정·변경이 가능하기 때문에, 굳이 특정 사항이 확정될 때까지 기다릴 필요가 없습니다.</p>
+        </div>
+
+        <div class="why-section" id="q7">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="비용과 절차는 어떻게 되나요?" data-en="What Are the Costs and Process?">비용과 절차는 어떻게 되나요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="비용은 재산 규모와 구조에 따라 달라지며, 상담 후 구체적인 견적을 안내드립니다. 저희는 특별히 복잡한 경우를 제외한 보통의 경우 정액 (flat fee) 구조로 진행되므로 변호사 비용 과다지출에 대한 걱정 없이 이용할 수 있습니다. 일단 초기 무료상담을 통해 비용안내를 받으시고 계약서를 작성하시면 저희가 통상 4주 안에 검토하실 초안을 준비해 드리며, 이 과정에서 필요한 자료수령과 의견교환들이 지속적으로 이루어집니다. 이후 서명 및 공증을 통해 법률적으로 서류를 완성하게 됩니다. 모든 절차는 영어와 한국어로 진행 가능합니다." data-en="Our fees are based on the scope and complexity of your estate, and a precise quote will be provided following your initial consultation. In most cases, we work on a flat fee basis, so you can engage our services without concern over accumulating hourly charges. Following engagement, a draft is typically prepared within four weeks, with continuous communication throughout the process. All documents are finalized through signing and notarization. Services are fully available in both English and Korean.">비용은 재산 규모와 구조에 따라 달라지며, 상담 후 구체적인 견적을 안내드립니다. 저희는 특별히 복잡한 경우를 제외한 보통의 경우 정액 (flat fee) 구조로 진행되므로 변호사 비용 과다지출에 대한 걱정 없이 이용할 수 있습니다. 일단 초기 무료상담을 통해 비용안내를 받으시고 계약서를 작성하시면 저희가 통상 4주 안에 검토하실 초안을 준비해 드리며, 이 과정에서 필요한 자료수령과 의견교환들이 지속적으로 이루어집니다. 이후 서명 및 공증을 통해 법률적으로 서류를 완성하게 됩니다. 모든 절차는 영어와 한국어로 진행 가능합니다.</p>
+        </div>
+
+        <div class="why-section" id="q8">
+          <div class="why-section__header">
+            <div>
+              <div class="why-section__title" data-ko="서비스 지역이 어떻게 되나요?" data-en="What Areas Do You Serve?">서비스 지역이 어떻게 되나요?</div>
+              <span class="gold-rule"></span>
+            </div>
+          </div>
+          <p data-ko="캘리포니아 전 지역 대상으로 서비스를 제공하고 있습니다. 이메일, 전화통화, 필요시 (줌)미팅도 가능합니다. 타주에 거주하시는 경우에도 캘리포니아 내에 부동산을 소유하고 계신 경우 Probate을 피하기 위해서는 Estate Planning이 필요합니다." data-en="We serve clients throughout the state of California. Consultations are available by email, phone, or (Zoom) meeting as needed. Even if you reside outside California, Estate Planning is essential if you own real property within the state in order to avoid Probate.">캘리포니아 전 지역 대상으로 서비스를 제공하고 있습니다. 이메일, 전화통화, 필요시 (줌)미팅도 가능합니다. 타주에 거주하시는 경우에도 캘리포니아 내에 부동산을 소유하고 계신 경우 Probate을 피하기 위해서는 Estate Planning이 필요합니다.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="why-cta">
+          <div class="why-cta__text">
+            <h3 data-ko="궁금한 점이 더 있으신가요?" data-en="Still Have Questions?">궁금한 점이 더 있으신가요?</h3>
+            <p data-ko="초기 상담은 무료입니다. 편하게 연락 주세요." data-en="Your initial consultation is complimentary. We welcome your inquiry at any time.">초기 상담은 무료입니다. 편하게 연락 주세요.</p>
+          </div>
+          <a href="contact.html" class="btn btn-primary" data-ko="무료 상담 예약하기" data-en="Book a Free Consultation">무료 상담 예약하기</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <div class="site-footer__brand">Law Office of Sean Jang</div>
+        <div class="site-footer__tagline">Estate Planning · Korean Law</div>
+        <p style="font-size:0.85rem; line-height:1.7; margin-top:0.75rem; color:rgba(250,248,242,0.75);" data-ko="캘리포니아 Estate Planning. 한국어·영어 상담 가능합니다." data-en="California Estate Planning. Available in Korean and English.">캘리포니아 Estate Planning. 한국어·영어 상담 가능합니다.</p>
+      </div>
+      <div>
+        <div class="site-footer__col-title" data-ko="메뉴" data-en="Menu">메뉴</div>
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="estate-planning.html">Estate Planning</a></li>
+          <li><a href="korean-legal-services.html">Korean Legal Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="site-footer__col-title" data-ko="연락처" data-en="Contact">연락처</div>
+        <ul>
+          <li><a href="tel:+13104089554">+1 (310) 408-9554</a></li>
+          <li><a href="mailto:syjang8175@gmail.com">syjang8175@gmail.com</a></li>
+          <li><a href="#">San Diego, CA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <div class="site-footer__legal-copyright">
+        © Copyright 2026 - Law Offices of Sean Jang &nbsp;|&nbsp; Privacy Policy
+      </div>
+      <div class="site-footer__legal-disclaimer">
+        The information you obtain at this site is solely for general informational purposes only and is not, nor is it intended to be, legal advice or a guarantee, warranty, or prediction as to the outcome of any particular legal matter. You should consult an attorney for advice regarding your individual situation. We invite you to contact us and welcome your calls, letters and electronic mail. Contacting us does not create an attorney-client relationship. Please do not send any confidential information to us until such time as an attorney-client relationship has been established.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 스크롤 시 사이드바 활성 링크 업데이트
+  const sections = document.querySelectorAll('.why-section');
+  const navLinks = document.querySelectorAll('.why-sidebar a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top <= 140) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+</script>
+
+
+<script>
+(function() {
+  function applyLang(lang) {
+    // data-ko/data-en 속성 가진 모든 요소 텍스트 교체
+    document.querySelectorAll('[data-ko]').forEach(function(el) {
+      if (el.tagName === 'OPTION') return; // option은 별도 처리
+      var val = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
+      if (val) el.innerHTML = val;
+    });
+    // 네비 버튼
+    var navBtn = document.getElementById('nav-consult-btn');
+    if (navBtn) navBtn.textContent = lang === 'ko' ? '상담 예약' : 'Get In Touch';
+    // KO/EN 버튼 active
+    document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('sjl-lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang-toggle__btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.getAttribute('data-lang')); });
+  });
+
+  // 저장된 언어 적용
+  var saved = 'ko';
+  try { saved = localStorage.getItem('sjl-lang') || 'ko'; } catch(e) {}
+  applyLang(saved);
+
+  // 햄버거
+  var hamburger = document.querySelector('.nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', function() { nav.classList.toggle('mobile-open'); });
+    document.querySelectorAll('.site-nav__links a').forEach(function(link) {
+      link.addEventListener('click', function() { nav.classList.remove('mobile-open'); });
+    });
+  }
+
+  // Top 버튼
+  var btnTop = document.getElementById('btn-top');
+  if (btnTop) {
+    window.addEventListener('scroll', function() { btnTop.classList.toggle('visible', window.scrollY > 300); });
+    btnTop.addEventListener('click', function() { window.scrollTo({top:0, behavior:'smooth'}); });
+  }
+})();
+</script>
+</body>
+</html>
