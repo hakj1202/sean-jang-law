@@ -1697,6 +1697,14 @@ p {
 }
 </style>
 <style>
+/* About 섹션 - 모바일 1열 */
+@media (max-width: 768px) {
+  #about div[style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
+<style>
 @media (min-width: 769px) and (max-width: 1100px) {
   .hero__photo-placeholder { display: none !important; }
   .hero__content {
