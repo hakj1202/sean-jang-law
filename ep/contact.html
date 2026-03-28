@@ -1249,6 +1249,25 @@ p {
 <script>
 (function() {
   // 언어 전환
+  var T = {
+    ko: {
+      'footer-contact': '연락처',
+      'footer-us-office': '미국 사무소',
+      'footer-kr-office': '한국 사무소',
+      'footer-kr-addr': '서울특별시 강남구<br>강남대로94길 66, 6~10층',
+      'footer-ep-desc': '캘리포니아 Estate Planning. 한국어·영어 상담 가능합니다.',
+      'footer-menu': '메뉴'
+    },
+    en: {
+      'footer-contact': 'Contact',
+      'footer-us-office': 'US Office',
+      'footer-kr-office': 'Korea Office',
+      'footer-kr-addr': '6~10F, 66 Gangnam-daero 94-gil,<br>Gangnam-gu, Seoul',
+      'footer-ep-desc': 'California Estate Planning. Available in Korean &amp; English.',
+      'footer-menu': 'Menu'
+    }
+  };
+
   function applyLang(lang) {
     var BLOCK = ['P','H1','H2','H3','DIV','SECTION','BUTTON'];
     function showEl(el) {
@@ -1261,6 +1280,11 @@ p {
     var enEls = document.querySelectorAll('.en');
     for (var i = 0; i < koEls.length; i++) lang === 'ko' ? showEl(koEls[i]) : hideEl(koEls[i]);
     for (var i = 0; i < enEls.length; i++) lang === 'en' ? showEl(enEls[i]) : hideEl(enEls[i]);
+    // data-i18n 처리
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[lang] && T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
     // 네비 버튼 텍스트
     var navBtn = document.getElementById('nav-consult-btn');
     if (navBtn) navBtn.textContent = lang === 'ko' ? '상담 예약' : 'Get In Touch';
