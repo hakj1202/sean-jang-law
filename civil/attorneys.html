@@ -1561,3 +1561,24 @@ p {
   var btnTop = document.getElementById('btn-top');
   if (btnTop) {
    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+    btnTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('.site-nav');
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+})();
+</script>
+</body>
+</html>
