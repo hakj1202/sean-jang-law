@@ -1300,8 +1300,8 @@ p {
             <div class="atty-tl-dot"></div>
             <div class="atty-tl-content">
               <div class="atty-tl-year" data-ko="미국" data-en="U.S.">미국</div>
-              <div class="atty-tl-title" data-ko="Visiting Scholar 참여" data-en="Visiting Scholar">Visiting Scholar 참여</div>
-              <div class="atty-tl-desc" data-ko="Pepperdine Caruso School of Law에서 약 2년간 Visiting Scholar로 미국법을 연구하였습니다." data-en="Deepened expertise in U.S. law as a Visiting Scholar at Pepperdine Caruso School of Law for approximately two years.">Pepperdine Caruso School of Law에서 약 2년간 Visiting Scholar로 미국법을 연구하였습니다.</div>
+              <div class="atty-tl-title" data-ko="Pepperdine Caruso School of Law" data-en="Pepperdine Caruso School of Law">Pepperdine Caruso School of Law</div>
+              <div class="atty-tl-desc" data-ko="Pepperdine Caruso School of Law에서 약 2년간 방문연구원으로 미국법을 연구하였습니다." data-en="Deepened expertise in U.S. law as a Visiting Scholar at Pepperdine Caruso School of Law for approximately two years.">Pepperdine Caruso School of Law에서 약 2년간 방문연구원으로 미국법을 연구하였습니다.</div>
             </div>
           </div>
           <div class="atty-tl-item">
@@ -1596,4 +1596,18 @@ p {
 
   var btnTop = document.getElementById('btn-top');
   if (btnTop) {
-   
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+    btnTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+</body>
+</html>
