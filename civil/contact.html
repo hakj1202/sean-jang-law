@@ -883,6 +883,11 @@ p {
   .site-nav__links { display: none; }
   .site-nav__cta .btn { display: none; }
   .nav-hamburger  { display: flex; }
+  .site-nav__inner { gap: 0.5rem; }
+  .site-nav__logo { min-width: 0; flex: 1 1 auto; overflow: hidden; font-size: 0.88rem; }
+  .site-nav__logo span { display: none !important; }
+  .site-nav__cta { flex-shrink: 0; }
+  .lang-toggle { flex-shrink: 0; }
 
   /* Mobile nav open */
   .site-nav.mobile-open .site-nav__links {
@@ -1072,8 +1077,11 @@ p {
     /* 모바일 */
     @media (max-width: 768px) {
       .site-nav { padding: 0.9rem 1rem !important; }
-      .site-nav__inner { padding: 0 !important; width: 100%; }
-      .site-nav__logo span { display: block !important; font-size: 0.48rem; letter-spacing: 0.18em; }
+      .site-nav__inner { padding: 0 !important; width: 100%; gap: 0.5rem; }
+      .site-nav__logo { min-width: 0 !important; flex: 1 1 auto !important; overflow: hidden !important; font-size: 0.88rem !important; }
+      .site-nav__logo span { display: none !important; }
+      .site-nav__cta { flex-shrink: 0 !important; }
+      .lang-toggle { flex-shrink: 0 !important; }
       .site-nav__cta .btn-primary { display: none; }
       .form-row { grid-template-columns: 1fr; }
       .contact-form { padding: 1.5rem; }

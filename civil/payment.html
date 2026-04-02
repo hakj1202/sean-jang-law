@@ -716,6 +716,12 @@ p {
   .site-nav__links { display: none; }
   .site-nav__cta .btn { display: none; }
   .nav-hamburger { display: flex; }
+  .site-nav__inner { gap: 0.5rem; }
+  .site-nav__logo { min-width: 0; flex: 1 1 auto; overflow: hidden; font-size: 0.88rem; }
+  .site-nav__logo span { display: none !important; }
+  .site-nav__logo > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .site-nav__cta { flex-shrink: 0; }
+  .lang-toggle { flex-shrink: 0; }
 
   .site-nav.mobile-open .site-nav__links {
     display: flex;
@@ -740,7 +746,7 @@ p {
 
 @media (max-width: 480px) {
   .site-nav { padding: 0.9rem 1rem !important; }
-  .site-nav__logo span { display: block !important; font-size: 0.48rem; letter-spacing: 0.18em; }
+  .site-nav__logo span { display: none !important; }
   .site-nav__cta .btn-primary { display: none; }
   .container { padding: 0 1rem; }
 }
@@ -919,7 +925,7 @@ p {
         <hr style="border:none;border-top:1px solid rgba(250,248,242,0.08);margin:0.8rem 0;">
         <ul>
           <li><a href="tel:+16198480075">+1 (619) 848-0075</a></li>
-          <li><a href="mailto:info@seanjanglaw.com">info@seanjanglaw.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#1871767e77586b7d79767279767f74796f367b7775"><span class="__cf_email__" data-cfemail="036a6d656c437066626d69626d646f62742d606c6e">[email&#160;protected]</span></a></li>
           <li><a href="https://www.seanjanglaw.com">www.seanjanglaw.com</a></li>
         </ul>
       </div>
@@ -937,7 +943,7 @@ p {
 
 <button class="btn-top" id="btn-top">&#8679;</button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   var T = {
     ko: {
@@ -1027,18 +1033,4 @@ p {
     var fadeEls = document.querySelectorAll('.fade-up');
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    fadeEls.forEach(function(el) { observer.observe(el); });
-
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
-})();
-</script>
-</body>
-</html>
+    }, { t
