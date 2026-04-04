@@ -715,6 +715,100 @@ p {
   gap: var(--space-sm);
 }
 
+/* ─── Referral Checkboxes ─── */
+.referral-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.32rem 1rem;
+  margin-top: 0.25rem;
+}
+.referral-item {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  user-select: none;
+}
+.referral-item input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  max-width: 14px !important;
+  min-height: 14px !important;
+  max-height: 14px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1.5px solid #b0bec5 !important;
+  border-radius: 50% !important;
+  background: white !important;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  box-sizing: border-box !important;
+  vertical-align: middle;
+}
+.referral-item input[type="checkbox"]:checked {
+  background: var(--gold-500) !important;
+  border-color: var(--gold-500) !important;
+}
+.referral-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+}
+.referral-item input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.25);
+}
+.referral-item span {
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.referral-other-input {
+  margin-top: 0.5rem;
+  display: none;
+}
+.referral-other-input.visible {
+  display: block;
+}
+.referral-other-input input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background: var(--white);
+  border: 1px solid var(--navy-100);
+  border-bottom: 2px solid var(--navy-200, #cdd5e0);
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition);
+}
+.referral-other-input input:focus {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+}
+@media (max-width: 520px) {
+  .referral-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── Footer ─── */
 .site-footer {
   background: #07131F;
@@ -1009,7 +1103,7 @@ p {
       color: var(--navy-900); letter-spacing: 0.05em;
       text-transform: uppercase; margin-bottom: 0.5rem;
     }
-    .form-group input,
+    .form-group input:not([type="checkbox"]),
     .form-group select,
     .form-group textarea {
       width: 100%; padding: 0.75rem 1rem;
@@ -1019,7 +1113,7 @@ p {
       transition: border 0.2s;
       font-family: var(--font-body);
     }
-    .form-group input:focus,
+    .form-group input:not([type="checkbox"]):focus,
     .form-group select:focus,
     .form-group textarea:focus {
       border-color: var(--gold-500);
@@ -1198,7 +1292,7 @@ p {
           </div>
 
           <div class="form-group">
-            <label><span class="ko">선호 상담 일정</span><span class="en">Preferred Schedule</span></label>
+            <label><span class="ko">선호 상담 일정</span><span class="en">Preferred Schedule</span> <span class="required">*</span></label>
             <input type="text" name="preferred_date"
               placeholder="예: 평일 오전, 주말 오후"
               data-ph-ko="예: 평일 오전, 주말 오후, 특정 날짜 등"
@@ -1208,7 +1302,7 @@ p {
           </div>
 
           <div class="form-group">
-            <label><span class="ko">상담 방식</span><span class="en">Preferred Contact Method</span></label>
+            <label><span class="ko">상담 방식</span><span class="en">Preferred Contact Method</span> <span class="required">*</span></label>
             <select name="meeting_type">
               <option value="" data-ko="선택해 주세요" data-en="Please select">선택해 주세요</option>
               <option value="전화 상담" data-ko="전화 상담" data-en="Phone Consultation">전화 상담</option>
@@ -1221,12 +1315,67 @@ p {
           <div class="form-group">
             <label><span class="ko">상담 요청 사항</span><span class="en">How Can We Help You?</span> <span class="required">*</span></label>
             <textarea name="message"
-              placeholder="현재 상황이나 궁금하신 점을 간략히 적어주세요."
-              data-ph-ko="현재 상황이나 궁금하신 점을 간략히 적어주세요. (예: 임대차 분쟁, 계약 위반, 부동산 소송 등)"
+              placeholder="어떤 도움이 필요한지 구체적으로 기재해주세요."
+              data-ph-ko="어떤 도움이 필요한지 구체적으로 기재해주세요."
               data-ph-en="Please briefly describe your situation. (e.g., landlord-tenant dispute, contract breach, employment issue, etc.)"
               required></textarea>
             <div class="form-note ko">사건의 경위, 상대방 정보, 현재 진행 상황 등을 간략히 적어주시면 더 정확한 상담이 가능합니다.</div>
             <div class="form-note en">Including a brief description of the dispute, the other party involved, and the current status will help us prepare for your consultation.</div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <span class="ko">방문 경로</span>
+              <span class="en">How Did You Find Us?</span>
+              <span class="required">*</span>
+            </label>
+            <div class="referral-grid">
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="Google 검색">
+                <span><span class="ko">Google 검색</span><span class="en">Google Search</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="Google 광고">
+                <span><span class="ko">Google 광고</span><span class="en">Google Ads</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="네이버 / 한국 포털">
+                <span><span class="ko">네이버 / 한국 포털</span><span class="en">Naver / Korean Portal</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="지인 소개">
+                <span><span class="ko">지인 소개 (친구·가족)</span><span class="en">Friend / Family Referral</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="다른 변호사 소개">
+                <span><span class="ko">다른 변호사 소개</span><span class="en">Attorney Referral</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="지역 커뮤니티">
+                <span><span class="ko">지역 커뮤니티 (예: SDSaram)</span><span class="en">Local Community</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="신문 / 기사 / 블로그">
+                <span><span class="ko">신문 / 기사 / 블로그</span><span class="en">News / Article / Blog</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="SNS">
+                <span><span class="ko">SNS (YouTube, Instagram 등)</span><span class="en">SNS (YouTube, Instagram, etc.)</span></span>
+              </label>
+              <label class="referral-item">
+                <input type="checkbox" name="referral" value="이전 고객">
+                <span><span class="ko">이전 고객 (재방문)</span><span class="en">Returning Client</span></span>
+              </label>
+              <label class="referral-item" id="referral-other-label">
+                <input type="checkbox" name="referral" value="기타" id="referral-other-check">
+                <span><span class="ko">기타 (직접 입력)</span><span class="en">Other</span></span>
+              </label>
+            </div>
+            <div class="referral-other-input" id="referral-other-input">
+              <input type="text" name="referral_other"
+                placeholder="직접 입력해주세요 / Please specify"
+                id="referral-other-text">
+            </div>
           </div>
 
           <div class="form-submit">
@@ -1428,6 +1577,25 @@ p {
     init();
   }
 })();
+</script>
+
+<script>
+  (function() {
+    var chk = document.getElementById('referral-other-check');
+    var box = document.getElementById('referral-other-input');
+    var txt = document.getElementById('referral-other-text');
+    if (chk && box) {
+      chk.addEventListener('change', function() {
+        if (this.checked) {
+          box.classList.add('visible');
+          txt && txt.focus();
+        } else {
+          box.classList.remove('visible');
+          if (txt) txt.value = '';
+        }
+      });
+    }
+  })();
 </script>
 </body>
 </html>
